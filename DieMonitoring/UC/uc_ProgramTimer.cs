@@ -1,0 +1,66 @@
+﻿
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace DieMonitoring
+{
+    public partial class uc_ProgramTimer : UserControl
+    {
+
+        System.Threading.Timer _tmrMinuteTimer = null;
+
+        public uc_ProgramTimer()
+        {
+            InitializeComponent();
+            foreach (var item in tableLayoutPanel1.Controls)
+            {
+                if (item.GetType() == typeof(Label))
+                {
+                    ((Label)item).Font = Program.DescriptionFont;
+
+                }
+            }
+            lblDate.Font = Program.Normalfont;
+            lblTime.Font = Program.TitleFont;
+            lbl_Title.Font = Program.TitleFont;
+            _tmrMinuteTimer = new System.Threading.Timer(_tmrNowTime_Callback, null,0, 60000);
+        }
+
+
+        delegate void CrossThreadSafetySetText(Control ctl, String text);
+        private void _tmrNowTime_Callback(object state)
+        {
+            CSafeSetText(lblDate, DateTime.Now.ToString("yyyy-MM-dd"));
+            CSafeSetText(lblTime, DateTime.Now.ToString("tt hh:mm:ss"));
+
+        }
+
+
+
+        private void ExitAction_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void uc_ProgramTimer_Load(object sender, System.EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToString("yyyy. MM. dd");
+            lblTime.Text = DateTime.Now.ToString("tt hh:mm:ss");
+        }
+
+        private void CSafeSetText(Control ctl, String text)
+        {
+            if (ctl.InvokeRequired)
+                ctl.Invoke(new CrossThreadSafetySetText(CSafeSetText), ctl, text);
+            else
+            {
+                if (ctl.Text != text) // 입력된 텍스트가 기존 텍스트와 다를 경우만 변경 ( 깜빡임 문제 )
+                {
+                    ctl.Text = text;
+                }
+            }
+        }
+    }
+}
