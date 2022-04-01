@@ -25,7 +25,7 @@ namespace DieMonitoring
         public bool modalIsOpen = false;
         public uc_AlarmHistory()
         {
-            InitializeComponent();
+            InitializeComponent();  
 
             //lbl_AlarmHistory.Font = Program.Normalfont;
         }
