@@ -5,20 +5,23 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DieMonitoring
 {
     static class Program
     {
-        private static Font bigfont;
-        private static Font titlefont;
-        private static Font descriptionfont;
-        private static Font normalfont;
+        private static string serverName;
+        private static string port;
+        private static string databaseName;
+        private static string uid;
+        private static string pwd;
 
-        public static Font TitleFont { get => titlefont; }
-        public static Font BigFont { get => bigfont; }
-        public static Font DescriptionFont { get => descriptionfont; }
-        public static Font Normalfont { get => normalfont; }
+        public static string ServerName { get => serverName; set => serverName = value; }
+        public static string DatabaseName { get => databaseName; set => databaseName = value; }
+        public static string Uid { get => uid; set => uid = value; }
+        public static string Pwd { get => pwd; set => pwd = value; }
+        public static string Port { get => port; set => port = value; }
 
         /// <summary>
         /// 해당 응용 프로그램의 주 진입점입니다.
@@ -26,25 +29,26 @@ namespace DieMonitoring
         [STAThread]
         static void Main()
         {
+            try
+            {
+                XmlDocument xml = new XmlDocument();
+                xml.Load($"{Environment.CurrentDirectory}\\Resources\\Connection.xml");
+                XmlNodeList xmlList = xml.SelectNodes("/root");
+                foreach (XmlNode xnl in xmlList)
+                {
+                    serverName = xnl["server"].InnerText;
+                    port = xnl["port"].InnerText;
+                    databaseName = xnl["database"].InnerText;
+                    uid = xnl["uid"].InnerText;
+                    pwd = xnl["pwd"].InnerText;
+                }
 
-            PrivateFontCollection privateFonts = new PrivateFontCollection();
-
-
-            //폰트명이 아닌 폰트의 파일명을 적음
-            privateFonts.AddFontFile("Resources/GodoM.ttf");
-
-
-            Font font = new Font(privateFonts.Families[0], 30f);
-            bigfont = font;
-            font = new Font(privateFonts.Families[0], 24f);
-            titlefont = font;
-            font = new Font(privateFonts.Families[0], 20f);
-            normalfont = font;
-            font = new Font(privateFonts.Families[0], 14f);
-            descriptionfont = font;
-          
-
-
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("네트워크 연결 설정 파일이 존재하지 않습니다. 관리자에게 문의바랍니다.");
+            }
+     
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

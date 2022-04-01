@@ -57,11 +57,14 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_SaveButton = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -508,15 +511,18 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel2, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 386);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 64);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
@@ -524,11 +530,10 @@
             // 
             this.panel2.BackgroundImage = global::DieMonitoring.Properties.Resources.AlarmHistoryButton;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tableLayoutPanel3.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.lbl_SaveButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(300, 3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(300, 3, 300, 3);
+            this.panel2.Location = new System.Drawing.Point(400, 3);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 58);
             this.panel2.TabIndex = 26;
@@ -537,7 +542,7 @@
             // 
             this.lbl_SaveButton.BackColor = System.Drawing.Color.Transparent;
             this.lbl_SaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_SaveButton.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_SaveButton.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lbl_SaveButton.ForeColor = System.Drawing.Color.White;
             this.lbl_SaveButton.Location = new System.Drawing.Point(0, 0);
             this.lbl_SaveButton.Name = "lbl_SaveButton";
@@ -545,6 +550,30 @@
             this.lbl_SaveButton.TabIndex = 0;
             this.lbl_SaveButton.Text = "저장";
             this.lbl_SaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::DieMonitoring.Properties.Resources.ButtonImage;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(203, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(194, 58);
+            this.panel4.TabIndex = 27;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(0, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(194, 58);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "기본값 설정";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Popup_Setting
             // 
@@ -556,6 +585,8 @@
             this.DoubleBuffered = true;
             this.Name = "Popup_Setting";
             this.Text = "Popup_Setting";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Popup_Setting_FormClosed);
+            this.Load += new System.EventHandler(this.Popup_Setting_Load);
             this.Controls.SetChildIndex(this.tableLayoutPanel3, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.panel1.ResumeLayout(false);
@@ -565,6 +596,7 @@
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -600,5 +632,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_SaveButton;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label15;
     }
 }

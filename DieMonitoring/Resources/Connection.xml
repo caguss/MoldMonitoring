@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<server>db2.coever.co.kr</server>
+	<port>1897</port>
+	<database>CoFAS_WOOIL</database>
+	<uid>sa</uid>
+	<pwd>Codb89897788@$%</pwd>
+</root>

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblValue = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.roundBorderPanel1 = new DieMonitoring.RoundBorderPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblValue = new System.Windows.Forms.Label();
             this.lbl_format = new System.Windows.Forms.Label();
             this.rbp_NodeNum = new DieMonitoring.RoundBorderPanel();
             this.lblNodeNum = new System.Windows.Forms.Label();
@@ -40,20 +40,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.rbp_NodeNum.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblValue
-            // 
-            this.lblValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblValue.Font = new System.Drawing.Font("맑은 고딕", 26F, System.Drawing.FontStyle.Bold);
-            this.lblValue.ForeColor = System.Drawing.Color.White;
-            this.lblValue.Location = new System.Drawing.Point(0, 0);
-            this.lblValue.Margin = new System.Windows.Forms.Padding(0);
-            this.lblValue.Name = "lblValue";
-            this.lblValue.Size = new System.Drawing.Size(94, 50);
-            this.lblValue.TabIndex = 0;
-            this.lblValue.Text = "110";
-            this.lblValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblValue.Click += new System.EventHandler(this.Node_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -103,6 +89,20 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(139, 50);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // lblValue
+            // 
+            this.lblValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblValue.Font = new System.Drawing.Font("맑은 고딕", 26F, System.Drawing.FontStyle.Bold);
+            this.lblValue.ForeColor = System.Drawing.Color.White;
+            this.lblValue.Location = new System.Drawing.Point(0, 0);
+            this.lblValue.Margin = new System.Windows.Forms.Padding(0);
+            this.lblValue.Name = "lblValue";
+            this.lblValue.Size = new System.Drawing.Size(94, 50);
+            this.lblValue.TabIndex = 0;
+            this.lblValue.Text = "110";
+            this.lblValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblValue.Click += new System.EventHandler(this.Node_Click);
             // 
             // lbl_format
             // 
@@ -155,6 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_DieNode";
             this.Size = new System.Drawing.Size(170, 50);

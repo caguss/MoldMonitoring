@@ -40,7 +40,7 @@ namespace DieMonitoring
             this.SuspendLayout();
             //ComboBox: Dropdown list
             cmbList.BackColor = listBackColor;
-            cmbList.Font = Program.DescriptionFont;
+            cmbList.Font = localfont; //Program.DescriptionFont;
             cmbList.ForeColor = listTextColor;
             cmbList.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);//Default event
             //cmbList.TextChanged += new EventHandler(ComboBox_TextChanged);//Refresh text

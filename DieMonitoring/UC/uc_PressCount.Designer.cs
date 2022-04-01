@@ -35,8 +35,8 @@
             this.lblTodayCnt = new System.Windows.Forms.Label();
             this.roundBorderPanel2 = new DieMonitoring.RoundBorderPanel();
             this.tlp_Total = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblTotalCnt = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.roundBorderPanel1.SuspendLayout();
             this.tlp_Today.SuspendLayout();
@@ -121,6 +121,7 @@
             this.lblTodayCnt.TabIndex = 1;
             this.lblTodayCnt.Text = "000,000,000,000";
             this.lblTodayCnt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTodayCnt.Click += new System.EventHandler(this.lblTodayCnt_Click);
             // 
             // roundBorderPanel2
             // 
@@ -144,8 +145,8 @@
             this.tlp_Total.ColumnCount = 2;
             this.tlp_Total.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tlp_Total.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tlp_Total.Controls.Add(this.lblTotalCnt, 0, 0);
-            this.tlp_Total.Controls.Add(this.label4, 1, 0);
+            this.tlp_Total.Controls.Add(this.label2, 0, 0);
+            this.tlp_Total.Controls.Add(this.lblTotalCnt, 1, 0);
             this.tlp_Total.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlp_Total.Location = new System.Drawing.Point(0, 0);
             this.tlp_Total.Margin = new System.Windows.Forms.Padding(5);
@@ -155,31 +156,31 @@
             this.tlp_Total.Size = new System.Drawing.Size(365, 44);
             this.tlp_Total.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 44);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "누적 :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblTotalCnt
             // 
             this.lblTotalCnt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotalCnt.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalCnt.ForeColor = System.Drawing.Color.White;
-            this.lblTotalCnt.Location = new System.Drawing.Point(0, 0);
+            this.lblTotalCnt.Location = new System.Drawing.Point(109, 0);
             this.lblTotalCnt.Margin = new System.Windows.Forms.Padding(0);
             this.lblTotalCnt.Name = "lblTotalCnt";
-            this.lblTotalCnt.Size = new System.Drawing.Size(109, 44);
-            this.lblTotalCnt.TabIndex = 0;
-            this.lblTotalCnt.Text = "누적 :";
-            this.lblTotalCnt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(109, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(256, 44);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "000,000,000,000";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotalCnt.Size = new System.Drawing.Size(256, 44);
+            this.lblTotalCnt.TabIndex = 1;
+            this.lblTotalCnt.Text = "000,000,000,000";
+            this.lblTotalCnt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // uc_PressCount
             // 
@@ -208,7 +209,7 @@
         private System.Windows.Forms.Label lblTodayCnt;
         private RoundBorderPanel roundBorderPanel2;
         private System.Windows.Forms.TableLayoutPanel tlp_Total;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotalCnt;
-        private System.Windows.Forms.Label label4;
     }
 }

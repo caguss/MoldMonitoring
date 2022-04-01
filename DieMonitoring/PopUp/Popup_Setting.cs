@@ -12,6 +12,7 @@ namespace DieMonitoring
 {
     public partial class Popup_Setting : CustomPopUp
     {
+        uc_OptionButton parentdata;
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(System.Windows.Forms.Control c)
         {
@@ -39,6 +40,19 @@ namespace DieMonitoring
         public Popup_Setting(uc_OptionButton parent)
         {
             InitializeComponent();
+
+            parentdata = parent;
+            lbl_FormName.Text = "옵션설정";
+        }
+
+        private void Popup_Setting_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parentdata.modalIsOpen = false;
+        }
+
+        private void Popup_Setting_Load(object sender, EventArgs e)
+        {
+            parentdata.modalIsOpen = true;
         }
     }
 }

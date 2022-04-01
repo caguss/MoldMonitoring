@@ -100,7 +100,7 @@
             // 
             this.lbl_CheckAll.BackColor = System.Drawing.Color.Transparent;
             this.lbl_CheckAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_CheckAll.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_CheckAll.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lbl_CheckAll.ForeColor = System.Drawing.Color.White;
             this.lbl_CheckAll.Location = new System.Drawing.Point(0, 0);
             this.lbl_CheckAll.Name = "lbl_CheckAll";
@@ -125,7 +125,7 @@
             // 
             this.lbl_DeleteAll.BackColor = System.Drawing.Color.Transparent;
             this.lbl_DeleteAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_DeleteAll.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_DeleteAll.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lbl_DeleteAll.ForeColor = System.Drawing.Color.White;
             this.lbl_DeleteAll.Location = new System.Drawing.Point(0, 0);
             this.lbl_DeleteAll.Name = "lbl_DeleteAll";

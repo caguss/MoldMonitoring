@@ -61,10 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomPopUp.cs">
+    <Compile Include="Provider\DataConnector.cs" />
+    <Compile Include="PopUp\CustomPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomPopUp.Designer.cs">
+    <Compile Include="PopUp\CustomPopUp.Designer.cs">
       <DependentUpon>CustomPopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="MonitoringForm.cs">
@@ -73,16 +74,16 @@
     <Compile Include="MonitoringForm.Designer.cs">
       <DependentUpon>MonitoringForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Popup_AlertHistory.cs">
+    <Compile Include="PopUp\Popup_AlertHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popup_AlertHistory.designer.cs">
+    <Compile Include="PopUp\Popup_AlertHistory.designer.cs">
       <DependentUpon>Popup_AlertHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Popup_Setting.cs">
+    <Compile Include="PopUp\Popup_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popup_Setting.Designer.cs">
+    <Compile Include="PopUp\Popup_Setting.Designer.cs">
       <DependentUpon>Popup_Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -182,16 +183,16 @@
     <Compile Include="UC\uc_AlarmHistoryNode.Designer.cs">
       <DependentUpon>uc_AlarmHistoryNode.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CustomPopUp.resx">
+    <EmbeddedResource Include="PopUp\CustomPopUp.resx">
       <DependentUpon>CustomPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MonitoringForm.resx">
       <DependentUpon>MonitoringForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popup_AlertHistory.resx">
+    <EmbeddedResource Include="PopUp\Popup_AlertHistory.resx">
       <DependentUpon>Popup_AlertHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popup_Setting.resx">
+    <EmbeddedResource Include="PopUp\Popup_Setting.resx">
       <DependentUpon>Popup_Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -254,12 +255,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Resources\GodoB.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <None Include="Resources\GodoM.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -267,6 +262,9 @@
   <ItemGroup>
     <Content Include="Resources\ButtonImage.png" />
     <Content Include="Resources\cog.png" />
+    <EmbeddedResource Include="Resources\Connection.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Resources\ellipse.png" />
     <Content Include="Resources\Formclose.png" />
     <Content Include="Resources\FormMaximize.png" />
