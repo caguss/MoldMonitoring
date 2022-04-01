@@ -36,7 +36,7 @@
             // lbl_OptionSetting
             // 
             this.lbl_OptionSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_OptionSetting.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_OptionSetting.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold);
             this.lbl_OptionSetting.ForeColor = System.Drawing.Color.White;
             this.lbl_OptionSetting.Location = new System.Drawing.Point(0, 0);
             this.lbl_OptionSetting.Name = "lbl_OptionSetting";
@@ -44,6 +44,7 @@
             this.lbl_OptionSetting.TabIndex = 0;
             this.lbl_OptionSetting.Text = "옵션\r\n설정";
             this.lbl_OptionSetting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_OptionSetting.Click += new System.EventHandler(this.lbl_OptionSetting_Click);
             // 
             // panel1
             // 
@@ -63,6 +64,7 @@
             this.BackgroundImage = global::DieMonitoring.Properties.Resources.OptionButton;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "uc_OptionButton";
             this.Size = new System.Drawing.Size(120, 120);
             this.panel1.ResumeLayout(false);

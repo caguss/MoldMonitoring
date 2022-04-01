@@ -12,20 +12,30 @@ namespace DieMonitoring
 {
     public partial class uc_Alert : UserControl
     {
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(System.Windows.Forms.Control c)
+        {
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
         private int AlarmCount = 0;
         private Color ClearColor = Color.Green;
         private Color AlertColor = Color.Red;
         public uc_Alert()
         {
             InitializeComponent();
-            foreach (var item in tableLayoutPanel1.Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    ((Label)item).Font = Program.TitleFont;
+            //foreach (var item in tableLayoutPanel1.Controls)
+            //{
+            //    if (item.GetType() == typeof(Label))
+            //    {
+            //        ((Label)item).Font = Program.TitleFont;
 
-                }
-            }
+            //    }
+            //}
             AlertClear();
             AlertCreate();
         }

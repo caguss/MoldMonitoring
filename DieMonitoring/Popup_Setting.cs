@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +10,7 @@ using System.Windows.Forms;
 
 namespace DieMonitoring
 {
-
-    public partial class uc_OptionButton : UserControl
+    public partial class Popup_Setting : CustomPopUp
     {
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(System.Windows.Forms.Control c)
@@ -24,18 +23,22 @@ namespace DieMonitoring
 
         #endregion
 
-        public bool modalIsOpen = false;
-        public uc_OptionButton()
-        {
-            InitializeComponent();
+        #region .. code for Flucuring ..
 
-            //lbl_OptionSetting.Font = Program.Normalfont;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
-        private void lbl_OptionSetting_Click(object sender, EventArgs e)
+        #endregion
+        public Popup_Setting(uc_OptionButton parent)
         {
-            Popup_Setting test = new Popup_Setting(this);
-            test.Show();
+            InitializeComponent();
         }
     }
 }

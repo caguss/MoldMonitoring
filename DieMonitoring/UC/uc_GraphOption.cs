@@ -10,19 +10,30 @@ using System.Windows.Forms;
 
 namespace DieMonitoring
 {
+
     public partial class uc_GraphOption : UserControl
     {
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(System.Windows.Forms.Control c)
+        {
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
         public uc_GraphOption()
         {
             InitializeComponent();
-            foreach (var item in tableLayoutPanel1.Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    ((Label)item).Font = Program.DescriptionFont;
+            //foreach (var item in tableLayoutPanel1.Controls)
+            //{
+            //    if (item.GetType() == typeof(Label))
+            //    {
+            //        ((Label)item).Font = Program.DescriptionFont;
 
-                }
-            }
+            //    }
+            //}
             
 
             AddTimeOptionItems(); //시간선택 데이터

@@ -73,6 +73,16 @@ namespace DieMonitoring.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap ButtonImage {
+            get {
+                object obj = ResourceManager.GetObject("ButtonImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap cog {
             get {
                 object obj = ResourceManager.GetObject("cog", resourceCulture);
@@ -86,6 +96,36 @@ namespace DieMonitoring.Properties {
         internal static System.Drawing.Bitmap ellipse {
             get {
                 object obj = ResourceManager.GetObject("ellipse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Formclose {
+            get {
+                object obj = ResourceManager.GetObject("Formclose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormMaximize {
+            get {
+                object obj = ResourceManager.GetObject("FormMaximize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormMinimize {
+            get {
+                object obj = ResourceManager.GetObject("FormMinimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

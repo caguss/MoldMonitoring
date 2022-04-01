@@ -36,9 +36,10 @@
             // lbl_AlarmHistory
             // 
             this.lbl_AlarmHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_AlarmHistory.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_AlarmHistory.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lbl_AlarmHistory.ForeColor = System.Drawing.Color.White;
             this.lbl_AlarmHistory.Location = new System.Drawing.Point(0, 0);
+            this.lbl_AlarmHistory.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_AlarmHistory.Name = "lbl_AlarmHistory";
             this.lbl_AlarmHistory.Size = new System.Drawing.Size(281, 81);
             this.lbl_AlarmHistory.TabIndex = 0;
@@ -63,6 +64,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "uc_AlarmHistory";
             this.Size = new System.Drawing.Size(281, 81);
             this.panel1.ResumeLayout(false);

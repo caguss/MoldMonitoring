@@ -16,7 +16,7 @@ namespace DieMonitoring
         private int borderWidth = 2;
         private bool isFill = true;
         private Color fillColor = Color.FromArgb(27, 33, 38);
-
+        
         public RoundBorderPanel()
         {
         }

@@ -99,7 +99,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("굴림", 14F);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
@@ -112,7 +112,7 @@
             // lblTodayCnt
             // 
             this.lblTodayCnt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTodayCnt.Font = new System.Drawing.Font("굴림", 14F);
+            this.lblTodayCnt.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lblTodayCnt.ForeColor = System.Drawing.Color.White;
             this.lblTodayCnt.Location = new System.Drawing.Point(109, 0);
             this.lblTodayCnt.Margin = new System.Windows.Forms.Padding(0);
@@ -158,7 +158,7 @@
             // lblTotalCnt
             // 
             this.lblTotalCnt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalCnt.Font = new System.Drawing.Font("굴림", 14F);
+            this.lblTotalCnt.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalCnt.ForeColor = System.Drawing.Color.White;
             this.lblTotalCnt.Location = new System.Drawing.Point(0, 0);
             this.lblTotalCnt.Margin = new System.Windows.Forms.Padding(0);
@@ -171,7 +171,7 @@
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("굴림", 14F);
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(109, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
@@ -187,6 +187,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Name = "uc_PressCount";
             this.Size = new System.Drawing.Size(371, 100);
             this.tableLayoutPanel1.ResumeLayout(false);

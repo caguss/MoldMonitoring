@@ -12,20 +12,30 @@ namespace DieMonitoring
 {
     public partial class uc_InnerTemp : UserControl
     {
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(System.Windows.Forms.Control c)
+        {
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
+
+        #endregion
         public uc_InnerTemp()
         {
             InitializeComponent();
 
-            foreach (var item in tableLayoutPanel1.Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    ((Label)item).Font = Program.Normalfont;
+            //foreach (var item in tableLayoutPanel1.Controls)
+            //{
+            //    if (item.GetType() == typeof(Label))
+            //    {
+            //        ((Label)item).Font = Program.Normalfont;
 
-                }
-            }
-            lbl_Humid.Font = Program.Normalfont;
-            lbl_Temp.Font = Program.Normalfont;
+            //    }
+            //}
+            //lbl_Humid.Font = Program.Normalfont;
+            //lbl_Temp.Font = Program.Normalfont;
 
         }
         /// <summary>
@@ -37,25 +47,25 @@ namespace DieMonitoring
         {
             if (IsTemp)
             {
-                lbl_Temp.Text = value.ToString()+ "％";
+                lbl_Temp.Text = value.ToString();
 
             }
             else
             {
-                lbl_Humid.Text = value.ToString() + "％";
+                lbl_Humid.Text = value.ToString();
 
             }
         }
         public void ChangeData(string Temp, string Humid)
         {
-            lbl_Temp.Text = Temp + "％";
-            lbl_Humid.Text = Humid + "％";
+            lbl_Temp.Text = Temp;
+            lbl_Humid.Text = Humid;
         }
 
         public void ChangeData(decimal Temp, decimal Humid)
         {
-            lbl_Temp.Text = Temp.ToString() + "％";
-            lbl_Humid.Text = Humid.ToString() + "％";
+            lbl_Temp.Text = Temp.ToString();
+            lbl_Humid.Text = Humid.ToString();
         }
     }
 }

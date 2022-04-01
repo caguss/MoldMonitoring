@@ -7,23 +7,32 @@ namespace DieMonitoring
 {
     public partial class uc_ProgramTimer : UserControl
     {
+        #region .. Double Buffered function ..
+        public static void SetDoubleBuffered(System.Windows.Forms.Control c)
+        {
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+            System.Reflection.PropertyInfo aProp = typeof(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            aProp.SetValue(c, true, null);
+        }
 
+        #endregion
         System.Threading.Timer _tmrMinuteTimer = null;
 
         public uc_ProgramTimer()
         {
             InitializeComponent();
-            foreach (var item in tableLayoutPanel1.Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    ((Label)item).Font = Program.DescriptionFont;
+            //foreach (var item in tableLayoutPanel1.Controls)
+            //{
+            //    if (item.GetType() == typeof(Label))
+            //    {
+            //        ((Label)item).Font = Program.DescriptionFont;
 
-                }
-            }
-            lblDate.Font = Program.Normalfont;
-            lblTime.Font = Program.TitleFont;
-            lbl_Title.Font = Program.TitleFont;
+            //    }
+            //}
+            //lblDate.Font = Program.Normalfont;
+            //lblTime.Font = Program.TitleFont;
+            //lbl_Title.Font = Program.TitleFont;
             _tmrMinuteTimer = new System.Threading.Timer(_tmrNowTime_Callback, null,0, 60000);
         }
 

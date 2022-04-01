@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomPopUp.Designer.cs">
+      <DependentUpon>CustomPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonitoringForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,12 @@
     </Compile>
     <Compile Include="Popup_AlertHistory.designer.cs">
       <DependentUpon>Popup_AlertHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup_Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup_Setting.Designer.cs">
+      <DependentUpon>Popup_Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,17 +176,32 @@
     <Compile Include="UC\uc_WorkingData.Designer.cs">
       <DependentUpon>uc_WorkingData.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\uc_AlarmHistoryNode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\uc_AlarmHistoryNode.Designer.cs">
+      <DependentUpon>uc_AlarmHistoryNode.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomPopUp.resx">
+      <DependentUpon>CustomPopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MonitoringForm.resx">
       <DependentUpon>MonitoringForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup_AlertHistory.resx">
       <DependentUpon>Popup_AlertHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Popup_Setting.resx">
+      <DependentUpon>Popup_Setting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\CustomData\CustomComboBox.resx">
+      <DependentUpon>CustomComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\uc_OptionButton.resx">
       <DependentUpon>uc_OptionButton.cs</DependentUpon>
@@ -215,6 +242,9 @@
     <EmbeddedResource Include="UC\uc_WorkingData.resx">
       <DependentUpon>uc_WorkingData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC\uc_AlarmHistoryNode.resx">
+      <DependentUpon>uc_AlarmHistoryNode.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -235,8 +265,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\ButtonImage.png" />
     <Content Include="Resources\cog.png" />
     <Content Include="Resources\ellipse.png" />
+    <Content Include="Resources\Formclose.png" />
+    <Content Include="Resources\FormMaximize.png" />
+    <Content Include="Resources\FormMinimize.png" />
     <Content Include="Resources\FrontBackTitle.png" />
     <Content Include="Resources\green_check.png" />
     <Content Include="Resources\lightning.png" />

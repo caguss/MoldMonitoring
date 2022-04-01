@@ -107,7 +107,7 @@
             // lbl_title
             // 
             this.lbl_title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_title.Font = new System.Drawing.Font("굴림", 25F);
+            this.lbl_title.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold);
             this.lbl_title.ForeColor = System.Drawing.Color.White;
             this.lbl_title.Location = new System.Drawing.Point(0, 0);
             this.lbl_title.Name = "lbl_title";
@@ -200,6 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.roundBorderPanel6);
+            this.DoubleBuffered = true;
             this.Name = "uc_LowerNodeGroup";
             this.Size = new System.Drawing.Size(670, 200);
             this.roundBorderPanel6.ResumeLayout(false);

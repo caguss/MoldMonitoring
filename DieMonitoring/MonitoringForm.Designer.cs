@@ -31,15 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitoringForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblfront = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblback = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.uc_GraphOption1 = new DieMonitoring.uc_GraphOption();
             this.uc_AlarmHistory1 = new DieMonitoring.uc_AlarmHistory();
             this.uc_Alert1 = new DieMonitoring.uc_Alert();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.roundBorderPanel4 = new DieMonitoring.RoundBorderPanel();
             this.NodeGroup_FrontLower = new DieMonitoring.uc_LowerNodeGroup();
             this.OuterData_FrontLower = new DieMonitoring.uc_OuterData();
@@ -56,6 +51,11 @@
             this.OuterData_BackUpper = new DieMonitoring.uc_OuterData();
             this.InnerData_BackUpper = new DieMonitoring.uc_InnerData();
             this.NodeGroup_BackUpper = new DieMonitoring.uc_UpperNodeGroup();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblfront = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblback = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.roundBorderPanel2 = new DieMonitoring.RoundBorderPanel();
             this.lbl_MoldName = new System.Windows.Forms.Label();
             this.uc_ProgramTimer1 = new DieMonitoring.uc_ProgramTimer();
@@ -65,11 +65,11 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.roundBorderPanel4.SuspendLayout();
+            this.roundBorderPanel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.roundBorderPanel4.SuspendLayout();
-            this.roundBorderPanel5.SuspendLayout();
             this.roundBorderPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,10 +78,10 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 450F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.86539F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.32966F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.807693F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.997253F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.93328F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.63274F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.40165F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.006529F));
             this.tableLayoutPanel1.Controls.Add(this.chartControl1, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.uc_GraphOption1, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.uc_AlarmHistory1, 3, 5);
@@ -97,7 +97,7 @@
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 507F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -110,12 +110,44 @@
             this.tableLayoutPanel1.SetColumnSpan(this.chartControl1, 3);
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Location = new System.Drawing.Point(1407, 153);
+            this.chartControl1.Location = new System.Drawing.Point(1408, 153);
             this.chartControl1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.chartControl1.Name = "chartControl1";
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.Size = new System.Drawing.Size(497, 504);
+            this.chartControl1.Size = new System.Drawing.Size(496, 504);
             this.chartControl1.TabIndex = 20;
+            // 
+            // uc_GraphOption1
+            // 
+            this.uc_GraphOption1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.SetColumnSpan(this.uc_GraphOption1, 3);
+            this.uc_GraphOption1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc_GraphOption1.Location = new System.Drawing.Point(1408, 657);
+            this.uc_GraphOption1.Margin = new System.Windows.Forms.Padding(0);
+            this.uc_GraphOption1.Name = "uc_GraphOption1";
+            this.uc_GraphOption1.Size = new System.Drawing.Size(496, 70);
+            this.uc_GraphOption1.TabIndex = 21;
+            // 
+            // uc_AlarmHistory1
+            // 
+            this.uc_AlarmHistory1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.SetColumnSpan(this.uc_AlarmHistory1, 2);
+            this.uc_AlarmHistory1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc_AlarmHistory1.Location = new System.Drawing.Point(1713, 946);
+            this.uc_AlarmHistory1.Margin = new System.Windows.Forms.Padding(5);
+            this.uc_AlarmHistory1.Name = "uc_AlarmHistory1";
+            this.uc_AlarmHistory1.Size = new System.Drawing.Size(186, 90);
+            this.uc_AlarmHistory1.TabIndex = 23;
+            // 
+            // uc_Alert1
+            // 
+            this.uc_Alert1.BackColor = System.Drawing.Color.Transparent;
+            this.uc_Alert1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc_Alert1.Location = new System.Drawing.Point(1418, 951);
+            this.uc_Alert1.Margin = new System.Windows.Forms.Padding(10);
+            this.uc_Alert1.Name = "uc_Alert1";
+            this.uc_Alert1.Size = new System.Drawing.Size(280, 80);
+            this.uc_Alert1.TabIndex = 26;
             // 
             // tableLayoutPanel2
             // 
@@ -136,108 +168,8 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.534619F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.46538F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1407, 891);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1408, 891);
             this.tableLayoutPanel2.TabIndex = 30;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::DieMonitoring.Properties.Resources.FrontBackTitle;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.lblfront);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(200, 5);
-            this.panel2.Margin = new System.Windows.Forms.Padding(200, 5, 200, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(303, 73);
-            this.panel2.TabIndex = 4;
-            // 
-            // lblfront
-            // 
-            this.lblfront.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblfront.Font = new System.Drawing.Font("굴림", 20F);
-            this.lblfront.ForeColor = System.Drawing.Color.White;
-            this.lblfront.Location = new System.Drawing.Point(0, 0);
-            this.lblfront.Margin = new System.Windows.Forms.Padding(0);
-            this.lblfront.Name = "lblfront";
-            this.lblfront.Size = new System.Drawing.Size(303, 73);
-            this.lblfront.TabIndex = 0;
-            this.lblfront.Text = "전면";
-            this.lblfront.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblfront.Click += new System.EventHandler(this.lblfront_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BackgroundImage = global::DieMonitoring.Properties.Resources.FrontBackTitle;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.lblback);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(903, 5);
-            this.panel3.Margin = new System.Windows.Forms.Padding(200, 5, 200, 5);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(304, 73);
-            this.panel3.TabIndex = 5;
-            // 
-            // lblback
-            // 
-            this.lblback.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblback.Font = new System.Drawing.Font("굴림", 20F);
-            this.lblback.ForeColor = System.Drawing.Color.White;
-            this.lblback.Location = new System.Drawing.Point(0, 0);
-            this.lblback.Margin = new System.Windows.Forms.Padding(0);
-            this.lblback.Name = "lblback";
-            this.lblback.Size = new System.Drawing.Size(304, 73);
-            this.lblback.TabIndex = 0;
-            this.lblback.Text = "후면";
-            this.lblback.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblback.Click += new System.EventHandler(this.lblback_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 5);
-            this.panel1.Controls.Add(this.roundBorderPanel2);
-            this.panel1.Controls.Add(this.uc_ProgramTimer1);
-            this.panel1.Controls.Add(this.uc_PressCount2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1904, 150);
-            this.panel1.TabIndex = 31;
-            // 
-            // uc_GraphOption1
-            // 
-            this.uc_GraphOption1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.SetColumnSpan(this.uc_GraphOption1, 3);
-            this.uc_GraphOption1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_GraphOption1.Location = new System.Drawing.Point(1407, 657);
-            this.uc_GraphOption1.Margin = new System.Windows.Forms.Padding(0);
-            this.uc_GraphOption1.Name = "uc_GraphOption1";
-            this.uc_GraphOption1.Size = new System.Drawing.Size(497, 60);
-            this.uc_GraphOption1.TabIndex = 21;
-            // 
-            // uc_AlarmHistory1
-            // 
-            this.uc_AlarmHistory1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.SetColumnSpan(this.uc_AlarmHistory1, 2);
-            this.uc_AlarmHistory1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_AlarmHistory1.Location = new System.Drawing.Point(1712, 951);
-            this.uc_AlarmHistory1.Margin = new System.Windows.Forms.Padding(10);
-            this.uc_AlarmHistory1.Name = "uc_AlarmHistory1";
-            this.uc_AlarmHistory1.Size = new System.Drawing.Size(182, 80);
-            this.uc_AlarmHistory1.TabIndex = 23;
-            // 
-            // uc_Alert1
-            // 
-            this.uc_Alert1.BackColor = System.Drawing.Color.Transparent;
-            this.uc_Alert1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_Alert1.Location = new System.Drawing.Point(1417, 951);
-            this.uc_Alert1.Margin = new System.Windows.Forms.Padding(10);
-            this.uc_Alert1.Name = "uc_Alert1";
-            this.uc_Alert1.Size = new System.Drawing.Size(275, 80);
-            this.uc_Alert1.TabIndex = 26;
             // 
             // roundBorderPanel4
             // 
@@ -260,7 +192,7 @@
             this.roundBorderPanel4.Radius = 20;
             this.roundBorderPanel4.RoundPadding = 2;
             this.tableLayoutPanel2.SetRowSpan(this.roundBorderPanel4, 2);
-            this.roundBorderPanel4.Size = new System.Drawing.Size(693, 798);
+            this.roundBorderPanel4.Size = new System.Drawing.Size(694, 798);
             this.roundBorderPanel4.TabIndex = 2;
             // 
             // NodeGroup_FrontLower
@@ -269,7 +201,7 @@
             this.NodeGroup_FrontLower.BackColor = System.Drawing.Color.Transparent;
             this.NodeGroup_FrontLower.Location = new System.Drawing.Point(10, 420);
             this.NodeGroup_FrontLower.Name = "NodeGroup_FrontLower";
-            this.NodeGroup_FrontLower.Size = new System.Drawing.Size(670, 200);
+            this.NodeGroup_FrontLower.Size = new System.Drawing.Size(675, 200);
             this.NodeGroup_FrontLower.TabIndex = 11;
             // 
             // OuterData_FrontLower
@@ -277,7 +209,7 @@
             this.OuterData_FrontLower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.OuterData_FrontLower.BackColor = System.Drawing.Color.Transparent;
             this.OuterData_FrontLower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OuterData_FrontLower.Location = new System.Drawing.Point(350, 630);
+            this.OuterData_FrontLower.Location = new System.Drawing.Point(355, 630);
             this.OuterData_FrontLower.Margin = new System.Windows.Forms.Padding(0);
             this.OuterData_FrontLower.Name = "OuterData_FrontLower";
             this.OuterData_FrontLower.Size = new System.Drawing.Size(330, 150);
@@ -312,15 +244,16 @@
             // 
             this.NodeGroup_FrontUpper.BackColor = System.Drawing.Color.Transparent;
             this.NodeGroup_FrontUpper.Location = new System.Drawing.Point(10, 20);
+            this.NodeGroup_FrontUpper.Margin = new System.Windows.Forms.Padding(0);
             this.NodeGroup_FrontUpper.Name = "NodeGroup_FrontUpper";
-            this.NodeGroup_FrontUpper.Size = new System.Drawing.Size(670, 200);
+            this.NodeGroup_FrontUpper.Size = new System.Drawing.Size(675, 200);
             this.NodeGroup_FrontUpper.TabIndex = 3;
             // 
             // OuterData_FrontUpper
             // 
             this.OuterData_FrontUpper.BackColor = System.Drawing.Color.Transparent;
             this.OuterData_FrontUpper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OuterData_FrontUpper.Location = new System.Drawing.Point(350, 230);
+            this.OuterData_FrontUpper.Location = new System.Drawing.Point(355, 230);
             this.OuterData_FrontUpper.Margin = new System.Windows.Forms.Padding(0);
             this.OuterData_FrontUpper.Name = "OuterData_FrontUpper";
             this.OuterData_FrontUpper.Size = new System.Drawing.Size(330, 150);
@@ -351,7 +284,7 @@
             this.roundBorderPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.roundBorderPanel5.IsBorder = true;
             this.roundBorderPanel5.IsFill = true;
-            this.roundBorderPanel5.Location = new System.Drawing.Point(708, 88);
+            this.roundBorderPanel5.Location = new System.Drawing.Point(709, 88);
             this.roundBorderPanel5.Margin = new System.Windows.Forms.Padding(5);
             this.roundBorderPanel5.Name = "roundBorderPanel5";
             this.roundBorderPanel5.Radius = 20;
@@ -380,7 +313,7 @@
             this.NodeGroup_BackLower.BackColor = System.Drawing.Color.Transparent;
             this.NodeGroup_BackLower.Location = new System.Drawing.Point(10, 420);
             this.NodeGroup_BackLower.Name = "NodeGroup_BackLower";
-            this.NodeGroup_BackLower.Size = new System.Drawing.Size(670, 200);
+            this.NodeGroup_BackLower.Size = new System.Drawing.Size(675, 200);
             this.NodeGroup_BackLower.TabIndex = 12;
             // 
             // OuterData_BackLower
@@ -388,7 +321,7 @@
             this.OuterData_BackLower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.OuterData_BackLower.BackColor = System.Drawing.Color.Transparent;
             this.OuterData_BackLower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OuterData_BackLower.Location = new System.Drawing.Point(350, 630);
+            this.OuterData_BackLower.Location = new System.Drawing.Point(355, 630);
             this.OuterData_BackLower.Margin = new System.Windows.Forms.Padding(0);
             this.OuterData_BackLower.Name = "OuterData_BackLower";
             this.OuterData_BackLower.Size = new System.Drawing.Size(330, 150);
@@ -409,7 +342,7 @@
             // 
             this.OuterData_BackUpper.BackColor = System.Drawing.Color.Transparent;
             this.OuterData_BackUpper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OuterData_BackUpper.Location = new System.Drawing.Point(350, 230);
+            this.OuterData_BackUpper.Location = new System.Drawing.Point(355, 230);
             this.OuterData_BackUpper.Margin = new System.Windows.Forms.Padding(0);
             this.OuterData_BackUpper.Name = "OuterData_BackUpper";
             this.OuterData_BackUpper.Size = new System.Drawing.Size(330, 150);
@@ -429,9 +362,78 @@
             // 
             this.NodeGroup_BackUpper.BackColor = System.Drawing.Color.Transparent;
             this.NodeGroup_BackUpper.Location = new System.Drawing.Point(10, 20);
+            this.NodeGroup_BackUpper.Margin = new System.Windows.Forms.Padding(0);
             this.NodeGroup_BackUpper.Name = "NodeGroup_BackUpper";
-            this.NodeGroup_BackUpper.Size = new System.Drawing.Size(670, 200);
+            this.NodeGroup_BackUpper.Size = new System.Drawing.Size(675, 200);
             this.NodeGroup_BackUpper.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImage = global::DieMonitoring.Properties.Resources.FrontBackTitle;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.lblfront);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(200, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(200, 5, 200, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(304, 73);
+            this.panel2.TabIndex = 4;
+            // 
+            // lblfront
+            // 
+            this.lblfront.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblfront.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold);
+            this.lblfront.ForeColor = System.Drawing.Color.White;
+            this.lblfront.Location = new System.Drawing.Point(0, 0);
+            this.lblfront.Margin = new System.Windows.Forms.Padding(0);
+            this.lblfront.Name = "lblfront";
+            this.lblfront.Size = new System.Drawing.Size(304, 73);
+            this.lblfront.TabIndex = 0;
+            this.lblfront.Text = "전면";
+            this.lblfront.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblfront.Click += new System.EventHandler(this.lblfront_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = global::DieMonitoring.Properties.Resources.FrontBackTitle;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.lblback);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(904, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(200, 5, 200, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(304, 73);
+            this.panel3.TabIndex = 5;
+            // 
+            // lblback
+            // 
+            this.lblback.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblback.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold);
+            this.lblback.ForeColor = System.Drawing.Color.White;
+            this.lblback.Location = new System.Drawing.Point(0, 0);
+            this.lblback.Margin = new System.Windows.Forms.Padding(0);
+            this.lblback.Name = "lblback";
+            this.lblback.Size = new System.Drawing.Size(304, 73);
+            this.lblback.TabIndex = 0;
+            this.lblback.Text = "후면";
+            this.lblback.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblback.Click += new System.EventHandler(this.lblback_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 5);
+            this.panel1.Controls.Add(this.roundBorderPanel2);
+            this.panel1.Controls.Add(this.uc_ProgramTimer1);
+            this.panel1.Controls.Add(this.uc_PressCount2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1904, 150);
+            this.panel1.TabIndex = 31;
             // 
             // roundBorderPanel2
             // 
@@ -453,7 +455,7 @@
             // 
             this.lbl_MoldName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_MoldName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_MoldName.Font = new System.Drawing.Font("굴림", 26F);
+            this.lbl_MoldName.Font = new System.Drawing.Font("맑은 고딕", 40F, System.Drawing.FontStyle.Bold);
             this.lbl_MoldName.ForeColor = System.Drawing.Color.White;
             this.lbl_MoldName.Location = new System.Drawing.Point(0, 0);
             this.lbl_MoldName.Name = "lbl_MoldName";
@@ -487,7 +489,7 @@
             this.uc_WorkingData1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.SetColumnSpan(this.uc_WorkingData1, 2);
             this.uc_WorkingData1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_WorkingData1.Location = new System.Drawing.Point(1407, 804);
+            this.uc_WorkingData1.Location = new System.Drawing.Point(1408, 804);
             this.uc_WorkingData1.Margin = new System.Windows.Forms.Padding(0);
             this.uc_WorkingData1.Name = "uc_WorkingData1";
             this.uc_WorkingData1.Size = new System.Drawing.Size(364, 137);
@@ -499,10 +501,10 @@
             this.uc_OptionButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uc_OptionButton1.BackgroundImage")));
             this.uc_OptionButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.uc_OptionButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_OptionButton1.Location = new System.Drawing.Point(1781, 814);
+            this.uc_OptionButton1.Location = new System.Drawing.Point(1782, 814);
             this.uc_OptionButton1.Margin = new System.Windows.Forms.Padding(10);
             this.uc_OptionButton1.Name = "uc_OptionButton1";
-            this.uc_OptionButton1.Size = new System.Drawing.Size(113, 117);
+            this.uc_OptionButton1.Size = new System.Drawing.Size(112, 117);
             this.uc_OptionButton1.TabIndex = 33;
             // 
             // MonitoringForm
@@ -511,6 +513,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MonitoringForm";
@@ -519,11 +522,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.roundBorderPanel4.ResumeLayout(false);
+            this.roundBorderPanel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.roundBorderPanel4.ResumeLayout(false);
-            this.roundBorderPanel5.ResumeLayout(false);
             this.roundBorderPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

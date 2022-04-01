@@ -12,6 +12,7 @@ namespace DieMonitoring
     [DefaultEvent("OnSelectedIndexChanged")]
     public partial class CustomComboBox : UserControl
     {
+
         //Fields
         private Color backColor = Color.FromArgb(27, 33, 38);
         private Color iconColor = Color.White;
@@ -19,7 +20,7 @@ namespace DieMonitoring
         private Color listTextColor = Color.White;
         private Color borderColor = Color.White;
         private int borderSize = 2;
-
+        private Font localfont = new Font("맑은 고딕", 18f);
         //Items
         private ComboBox cmbList;
         private Label lblText;
@@ -57,7 +58,7 @@ namespace DieMonitoring
             lblText.AutoSize = false;
             lblText.BackColor = backColor;
             lblText.ForeColor = listTextColor;
-            lblText.Font = Program.DescriptionFont;
+            lblText.Font = localfont;//Program.DescriptionFont;
             lblText.TextAlign = ContentAlignment.MiddleLeft;
             lblText.Padding = new Padding(8, 0, 0, 0);
             //->Attach label events to user control event
@@ -72,7 +73,7 @@ namespace DieMonitoring
             this.Size = new Size(200, 30);
             this.ForeColor = Color.White;
             this.Padding = new Padding(borderSize);//Border Size
-            this.Font = Program.DescriptionFont;
+            this.Font = localfont; //Program.DescriptionFont;
             base.BackColor = borderColor; //Border Color
             this.ResumeLayout();
             AdjustComboBoxDimensions();
@@ -80,7 +81,7 @@ namespace DieMonitoring
 
         private void AdjustComboBoxDimensions()
         {
-            cmbList.Width = lblText.Width + 10;
+            cmbList.Width = lblText.Width;
             cmbList.DropDownHeight = 200;
             cmbList.Location = new Point()
             {
@@ -366,6 +367,17 @@ namespace DieMonitoring
         {
             base.OnResize(e);
             AdjustComboBoxDimensions();
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // CustomComboBox
+            // 
+            this.Name = "CustomComboBox";
+            this.ResumeLayout(false);
+
         }
     }
 

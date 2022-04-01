@@ -31,27 +31,27 @@
             this.lblValue = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.roundBorderPanel1 = new DieMonitoring.RoundBorderPanel();
-            this.rbp_NodeNum = new DieMonitoring.RoundBorderPanel();
-            this.lblNodeNum = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_format = new System.Windows.Forms.Label();
+            this.rbp_NodeNum = new DieMonitoring.RoundBorderPanel();
+            this.lblNodeNum = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.roundBorderPanel1.SuspendLayout();
-            this.rbp_NodeNum.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.rbp_NodeNum.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblValue
             // 
             this.lblValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblValue.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblValue.Font = new System.Drawing.Font("맑은 고딕", 26F, System.Drawing.FontStyle.Bold);
             this.lblValue.ForeColor = System.Drawing.Color.White;
             this.lblValue.Location = new System.Drawing.Point(0, 0);
             this.lblValue.Margin = new System.Windows.Forms.Padding(0);
             this.lblValue.Name = "lblValue";
-            this.lblValue.Size = new System.Drawing.Size(89, 50);
+            this.lblValue.Size = new System.Drawing.Size(94, 50);
             this.lblValue.TabIndex = 0;
-            this.lblValue.Text = "10.11";
+            this.lblValue.Text = "110";
             this.lblValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblValue.Click += new System.EventHandler(this.Node_Click);
             // 
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(160, 50);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(170, 50);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // roundBorderPanel1
@@ -85,8 +85,37 @@
             this.roundBorderPanel1.Name = "roundBorderPanel1";
             this.roundBorderPanel1.Radius = 10;
             this.roundBorderPanel1.RoundPadding = 2;
-            this.roundBorderPanel1.Size = new System.Drawing.Size(129, 50);
+            this.roundBorderPanel1.Size = new System.Drawing.Size(139, 50);
             this.roundBorderPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel2.Controls.Add(this.lblValue, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_format, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(139, 50);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // lbl_format
+            // 
+            this.lbl_format.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_format.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.lbl_format.ForeColor = System.Drawing.Color.White;
+            this.lbl_format.Location = new System.Drawing.Point(94, 0);
+            this.lbl_format.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_format.Name = "lbl_format";
+            this.lbl_format.Size = new System.Drawing.Size(45, 50);
+            this.lbl_format.TabIndex = 1;
+            this.lbl_format.Text = "℃";
+            this.lbl_format.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // rbp_NodeNum
             // 
@@ -95,6 +124,7 @@
             this.rbp_NodeNum.Controls.Add(this.lblNodeNum);
             this.rbp_NodeNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rbp_NodeNum.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(173)))), ((int)(((byte)(71)))));
+            this.rbp_NodeNum.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.rbp_NodeNum.IsBorder = true;
             this.rbp_NodeNum.IsFill = true;
             this.rbp_NodeNum.Location = new System.Drawing.Point(0, 0);
@@ -108,7 +138,7 @@
             // lblNodeNum
             // 
             this.lblNodeNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNodeNum.Font = new System.Drawing.Font("굴림", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblNodeNum.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lblNodeNum.ForeColor = System.Drawing.Color.White;
             this.lblNodeNum.Location = new System.Drawing.Point(0, 0);
             this.lblNodeNum.Margin = new System.Windows.Forms.Padding(0);
@@ -116,36 +146,8 @@
             this.lblNodeNum.Size = new System.Drawing.Size(31, 50);
             this.lblNodeNum.TabIndex = 0;
             this.lblNodeNum.Text = "0";
-            this.lblNodeNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.Controls.Add(this.lblValue, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_format, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(129, 50);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // lbl_format
-            // 
-            this.lbl_format.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_format.Font = new System.Drawing.Font("굴림", 12F);
-            this.lbl_format.ForeColor = System.Drawing.Color.White;
-            this.lbl_format.Location = new System.Drawing.Point(89, 0);
-            this.lbl_format.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl_format.Name = "lbl_format";
-            this.lbl_format.Size = new System.Drawing.Size(40, 50);
-            this.lbl_format.TabIndex = 1;
-            this.lbl_format.Text = "℃";
-            this.lbl_format.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNodeNum.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblNodeNum.Click += new System.EventHandler(this.Node_Click);
             // 
             // uc_DieNode
             // 
@@ -155,11 +157,11 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_DieNode";
-            this.Size = new System.Drawing.Size(160, 50);
+            this.Size = new System.Drawing.Size(170, 50);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.roundBorderPanel1.ResumeLayout(false);
-            this.rbp_NodeNum.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.rbp_NodeNum.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

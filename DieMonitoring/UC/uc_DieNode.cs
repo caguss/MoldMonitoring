@@ -12,11 +12,7 @@ namespace DieMonitoring
 {
     public partial class uc_DieNode : UserControl
     {
-        System.Threading.Timer _tmrSecondTimer = null;
-        public bool isRed = false;
-        public int secondcnt = 0; // 안들어온 초를 세기위한 함수
-        public int maxcnt = 10; // secondcnt와의 비교하기 위한 함수. 해당 함수의 수만큼 데이터가 들어오지 않을경우 빨간색 점멸
-
+        public int alarmvalue = 30;
         private string nodenumber = "0";
 
         [Category("RJ Code - Appearance")]
@@ -35,10 +31,9 @@ namespace DieMonitoring
         {
             InitializeComponent();
             
-            lblValue.Font = Program.TitleFont;
-            lblNodeNum.Font = Program.Normalfont;
-            lbl_format.Font = Program.Normalfont;
-            _tmrSecondTimer = new System.Threading.Timer(_tmrConnectionError_Callback, null, 1000, 1000);
+            //lblValue.Font = Program.TitleFont;
+            //lblNodeNum.Font = Program.Normalfont;
+            //lbl_format.Font = Program.Normalfont;
         }
 
    
@@ -46,19 +41,27 @@ namespace DieMonitoring
         public void ChangeValue(string value)
         {
             lblValue.Text = value + "℃";
-            CheckAlarm();
-          
+            if (Convert.ToInt32(value) >= alarmvalue)
+            {
+                RedAlarm();
+            }
+            else
+            {
+                SafeAlarm();
+            }
+
+
 
         }
-        public void ChangeValue(decimal value)
+        public void ChangeValue(int value)
         {
             lblValue.Text = value.ToString() + "℃";
-            CheckAlarm();
+            SafeAlarm();
 
 
         }
 
-        public void CheckAlarm()
+        public void SafeAlarm()
         {
             lblNodeNum.Invoke((MethodInvoker)delegate () {
                 lblNodeNum.BackColor = Color.Transparent;
@@ -67,42 +70,26 @@ namespace DieMonitoring
             lblValue.Invoke((MethodInvoker)delegate () {
                 lblValue.ForeColor = Color.White;
             });
+            lbl_format.Invoke((MethodInvoker)delegate () {
+                lbl_format.ForeColor = Color.White;
+            });
 
-
-            secondcnt = 0;
-            isRed = false;
         }
-        private void _tmrConnectionError_Callback(object state)
+
+        public void RedAlarm()
         {
-            if (secondcnt >= maxcnt)
-            {
-                if (!isRed)
-                {
+            lblNodeNum.Invoke((MethodInvoker)delegate () {
+                lblNodeNum.BackColor = Color.Red;
+            });
 
-                    lblNodeNum.Invoke((MethodInvoker)delegate () {
-                        lblNodeNum.BackColor = Color.Red;
-                    });
-
-
-                    lblValue.Invoke((MethodInvoker)delegate () {
-                        lblValue.ForeColor = Color.Red;
-                    });
-                    isRed = true;
-                }
-                
-                //else
-                //{
-                //    CSafeSetColor(lblValue, Color.FromArgb(163, 252, 78));
-                //    isRed = false;
-
-                //}
-            }
-
-
-            secondcnt++;
+            lblValue.Invoke((MethodInvoker)delegate () {
+                lblValue.ForeColor = Color.Red;
+            });
+            lbl_format.Invoke((MethodInvoker)delegate () {
+                lbl_format.ForeColor = Color.Red;
+            });
 
         }
-    
 
 
         /// <summary>
@@ -112,8 +99,7 @@ namespace DieMonitoring
         /// <param name="e"></param>
         private void Node_Click(object sender, EventArgs e)
         {
-            ChangeValue(Convert.ToDecimal(10.001));
+            ChangeValue(100);
         }
- 
     }
 }

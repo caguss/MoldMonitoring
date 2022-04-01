@@ -80,7 +80,7 @@
             // lbl_Title
             // 
             this.lbl_Title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Title.Font = new System.Drawing.Font("굴림", 15F);
+            this.lbl_Title.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Title.ForeColor = System.Drawing.Color.White;
             this.lbl_Title.Location = new System.Drawing.Point(0, 0);
             this.lbl_Title.Margin = new System.Windows.Forms.Padding(0);
@@ -93,7 +93,7 @@
             // lblDate
             // 
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDate.Font = new System.Drawing.Font("굴림", 16F);
+            this.lblDate.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(0, 49);
             this.lblDate.Margin = new System.Windows.Forms.Padding(0);
@@ -107,7 +107,7 @@
             // lblTime
             // 
             this.lblTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTime.Font = new System.Drawing.Font("굴림", 24F);
+            this.lblTime.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold);
             this.lblTime.ForeColor = System.Drawing.Color.White;
             this.lblTime.Location = new System.Drawing.Point(0, 98);
             this.lblTime.Margin = new System.Windows.Forms.Padding(0);
@@ -135,6 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_ProgramTimer";
             this.Size = new System.Drawing.Size(450, 150);

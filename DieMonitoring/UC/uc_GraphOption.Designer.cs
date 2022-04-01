@@ -51,7 +51,7 @@
             this.pnl.Name = "pnl";
             this.pnl.Radius = 10;
             this.pnl.RoundPadding = 2;
-            this.pnl.Size = new System.Drawing.Size(500, 60);
+            this.pnl.Size = new System.Drawing.Size(500, 70);
             this.pnl.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -71,17 +71,17 @@
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 60);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 70);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12.5F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 40);
+            this.label1.Size = new System.Drawing.Size(90, 50);
             this.label1.TabIndex = 1;
             this.label1.Text = "센서 선택";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,11 +89,11 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("굴림", 12F);
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 12.5F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(253, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 40);
+            this.label2.Size = new System.Drawing.Size(90, 50);
             this.label2.TabIndex = 2;
             this.label2.Text = "표시 시간";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,6 +105,7 @@
             this.cb_SensorOption.BorderSize = 2;
             this.cb_SensorOption.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cb_SensorOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cb_SensorOption.Font = new System.Drawing.Font("맑은 고딕", 16F);
             this.cb_SensorOption.ForeColor = System.Drawing.Color.White;
             this.cb_SensorOption.IconColor = System.Drawing.Color.White;
             this.cb_SensorOption.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
@@ -113,7 +114,7 @@
             this.cb_SensorOption.MinimumSize = new System.Drawing.Size(100, 30);
             this.cb_SensorOption.Name = "cb_SensorOption";
             this.cb_SensorOption.Padding = new System.Windows.Forms.Padding(2);
-            this.cb_SensorOption.Size = new System.Drawing.Size(138, 34);
+            this.cb_SensorOption.Size = new System.Drawing.Size(138, 44);
             this.cb_SensorOption.TabIndex = 3;
             this.cb_SensorOption.Texts = "";
             // 
@@ -124,6 +125,7 @@
             this.cb_TimeOption.BorderSize = 2;
             this.cb_TimeOption.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cb_TimeOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cb_TimeOption.Font = new System.Drawing.Font("맑은 고딕", 16F);
             this.cb_TimeOption.ForeColor = System.Drawing.Color.White;
             this.cb_TimeOption.IconColor = System.Drawing.Color.White;
             this.cb_TimeOption.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
@@ -132,7 +134,7 @@
             this.cb_TimeOption.MinimumSize = new System.Drawing.Size(100, 30);
             this.cb_TimeOption.Name = "cb_TimeOption";
             this.cb_TimeOption.Padding = new System.Windows.Forms.Padding(2);
-            this.cb_TimeOption.Size = new System.Drawing.Size(138, 34);
+            this.cb_TimeOption.Size = new System.Drawing.Size(138, 44);
             this.cb_TimeOption.TabIndex = 4;
             this.cb_TimeOption.Texts = "";
             // 
@@ -142,9 +144,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.pnl);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_GraphOption";
-            this.Size = new System.Drawing.Size(500, 60);
+            this.Size = new System.Drawing.Size(500, 70);
             this.pnl.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

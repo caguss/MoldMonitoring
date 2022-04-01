@@ -16,18 +16,18 @@ namespace DieMonitoring
         {
             InitializeComponent();
 
-            foreach (var item in tableLayoutPanel1.Controls)
-            {
-                if (item.GetType() == typeof(Label))
-                {
-                    ((Label)item).Font = Program.Normalfont;
+            //foreach (var item in tableLayoutPanel1.Controls)
+            //{
+            //    if (item.GetType() == typeof(Label))
+            //    {
+            //        ((Label)item).Font = Program.Normalfont;
 
-                }
-            }
-            lbl_bar.Font = Program.Normalfont;
-            lbl_Temp.Font = Program.Normalfont;
-            lbl_barText.Font = Program.Normalfont;
-            lbl_TempText.Font = Program.Normalfont;
+            //    }
+            //}
+            //lbl_bar.Font = Program.Normalfont;
+            //lbl_Temp.Font = Program.Normalfont;
+            //lbl_barText.Font = Program.Normalfont;
+            //lbl_TempText.Font = Program.Normalfont;
         }
         /// <summary>
         /// 하나만 지정해서 보낼 경우. bool 타입은 True는 온도, False는 습도
