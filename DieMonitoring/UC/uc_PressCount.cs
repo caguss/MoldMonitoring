@@ -23,8 +23,8 @@ namespace DieMonitoring
 
         #endregion
 
-        private int TotalPressCnt = 0;
-        private int TodayPressCnt = 0;
+        private int TotalPressCnt = 10000;
+        private int TodayPressCnt = 10000;
         public uc_PressCount()
         {
             InitializeComponent();
@@ -35,16 +35,16 @@ namespace DieMonitoring
         {
             TodayPressCnt++;
             TotalPressCnt++;
-            lblTodayCnt.Text = string.Format("{0:0,0}", TodayPressCnt.ToString());
-            lblTotalCnt.Text = string.Format("{0:0,0}", TotalPressCnt.ToString());
+            lblTodayCnt.Text = TodayPressCnt.ToString("#,##0");
+            lblTotalCnt.Text = TotalPressCnt.ToString("#,##0");
         }
 
         public void PressCntLoad(int TotalCnt, int TodayCnt)
         {
             TotalPressCnt = TotalCnt;
             TodayPressCnt = TodayCnt;
-            lblTodayCnt.Text = string.Format("{0:0,0}",  TodayPressCnt.ToString());
-            lblTotalCnt.Text = string.Format("{0:0,0}", TotalPressCnt.ToString());
+            lblTodayCnt.Text = TodayPressCnt.ToString("#,##0");
+            lblTotalCnt.Text = TotalPressCnt.ToString("#,##0");
         }
 
         private void lblTodayCnt_Click(object sender, EventArgs e)

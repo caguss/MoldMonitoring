@@ -542,7 +542,7 @@
         private uc_ProgramTimer uc_ProgramTimer1;
         private uc_PressCount uc_PressCount2;
         private RoundBorderPanel roundBorderPanel2;
-        private System.Windows.Forms.Label lbl_MoldName;
+        public System.Windows.Forms.Label lbl_MoldName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
         private RoundBorderPanel roundBorderPanel4;

@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PopUp\Popup_MoldManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp\Popup_MoldManager.Designer.cs">
+      <DependentUpon>Popup_MoldManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Provider\DataConnector.cs" />
     <Compile Include="PopUp\CustomPopUp.cs">
       <SubType>Form</SubType>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PopUp\Popup_AlertHistory.resx">
       <DependentUpon>Popup_AlertHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp\Popup_MoldManager.resx">
+      <DependentUpon>Popup_MoldManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUp\Popup_Setting.resx">
       <DependentUpon>Popup_Setting.cs</DependentUpon>

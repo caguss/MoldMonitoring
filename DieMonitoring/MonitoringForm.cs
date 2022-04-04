@@ -39,6 +39,9 @@ namespace DieMonitoring
         #endregion
         public bool frontisRed = false;
         public bool backisRed = false;
+        #region MoldManager
+        public bool modalisOpen = false;
+        #endregion
 
         System.Threading.Timer _tmrSecondTimer = null;
         public int frontsecondcnt = 0; // 안들어온 초를 세기위한 함수 --DB상 센서카운트 14개가 안된다면 cnt 올림?? 구상 필요
@@ -51,7 +54,6 @@ namespace DieMonitoring
         {
             InitializeComponent();
             _tmrSecondTimer = new System.Threading.Timer(_tmrConnectionError_Callback, null, 1000, 1000);
-
             //lbl_MoldName.Font = Program.BigFont;
             //lblback.Font = Program.TitleFont;
             //lblfront.Font = Program.TitleFont;
@@ -118,7 +120,6 @@ namespace DieMonitoring
         private void lblback_Click(object sender, EventArgs e)
         {
             lblbackClickAction();
-
         }
 
         private void lblbackClickAction()
@@ -135,9 +136,11 @@ namespace DieMonitoring
 
         private void lbl_MoldName_Click(object sender, EventArgs e)
         {
-            lblfrontClickAction();
-            lblbackClickAction();
-
+            if (!modalisOpen)
+            {
+                Popup_MoldManager modal = new Popup_MoldManager(this);
+                modal.Show();
+            }
         }
     }
 }

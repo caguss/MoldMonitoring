@@ -31,6 +31,8 @@ namespace DieMonitoring
         }
 
         #endregion
+
+
         System.Threading.Timer _tmrMinuteTimer = null;
 
         public uc_ProgramTimer()
@@ -54,9 +56,10 @@ namespace DieMonitoring
         delegate void CrossThreadSafetySetText(Control ctl, String text);
         private void _tmrNowTime_Callback(object state)
         {
-            CSafeSetText(lblDate, DateTime.Now.ToString("yyyy-MM-dd"));
+            CSafeSetText(lblDate, DateTime.Now.ToString("yyyy. MM. dd"));
             CSafeSetText(lblTime, DateTime.Now.ToString("tt hh:mm:ss"));
 
+            //온습도 procedure 추가
         }
 
 
@@ -67,11 +70,6 @@ namespace DieMonitoring
 
         }
 
-        private void uc_ProgramTimer_Load(object sender, System.EventArgs e)
-        {
-            lblDate.Text = DateTime.Now.ToString("yyyy. MM. dd");
-            lblTime.Text = DateTime.Now.ToString("tt hh:mm:ss");
-        }
 
         private void CSafeSetText(Control ctl, String text)
         {

@@ -37,10 +37,11 @@ namespace DieMonitoring
         }
 
         #endregion
+
+        uc_AlarmHistory parentdata;
         DateTime opentime = DateTime.Now;
         System.Threading.Timer _tmr5SecondTimer = null;
 
-        uc_AlarmHistory parentdata;
         public Popup_AlertHistory(uc_AlarmHistory parent)
         {
             InitializeComponent();

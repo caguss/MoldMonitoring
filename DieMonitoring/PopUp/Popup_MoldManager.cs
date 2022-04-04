@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +10,7 @@ using System.Windows.Forms;
 
 namespace DieMonitoring
 {
-
-    public partial class uc_OptionButton : UserControl
+    public partial class Popup_MoldManager : CustomPopUp
     {
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(System.Windows.Forms.Control c)
@@ -38,21 +37,29 @@ namespace DieMonitoring
 
         #endregion
 
-        public bool modalIsOpen = false;
-        public uc_OptionButton()
+        MonitoringForm parentdata;
+        public Popup_MoldManager(MonitoringForm parent)
         {
             InitializeComponent();
 
-            //lbl_OptionSetting.Font = Program.Normalfont;
+            parentdata = parent;
+            lbl_FormName.Text = "금형관리";
         }
 
-        private void lbl_OptionSetting_Click(object sender, EventArgs e)
+        private void Popup_Setting_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!modalIsOpen)
-            {
-                Popup_Setting test = new Popup_Setting(this);
-                test.Show();
-            }
+            parentdata.modalisOpen = false;
+        }
+
+        private void Popup_Setting_Load(object sender, EventArgs e)
+        {
+            parentdata.modalisOpen = true;
+        }
+
+        private void lb_MoldList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            parentdata.lbl_MoldName.Text = lb_MoldList.SelectedItem.ToString();
+            this.Close();
         }
     }
 }

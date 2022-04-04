@@ -139,7 +139,6 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_ProgramTimer";
             this.Size = new System.Drawing.Size(450, 150);
-            this.Load += new System.EventHandler(this.uc_ProgramTimer_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.roundBorderPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
