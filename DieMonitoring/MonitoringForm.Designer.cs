@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitoringForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.uc_GraphOption1 = new DieMonitoring.uc_GraphOption();
             this.uc_AlarmHistory1 = new DieMonitoring.uc_AlarmHistory();
             this.uc_Alert1 = new DieMonitoring.uc_Alert();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,6 +61,7 @@
             this.uc_PressCount2 = new DieMonitoring.uc_PressCount();
             this.uc_WorkingData1 = new DieMonitoring.uc_WorkingData();
             this.uc_OptionButton1 = new DieMonitoring.uc_OptionButton();
+            this.uc_GraphOption1 = new DieMonitoring.uc_GraphOption();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -78,18 +78,18 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 450F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.93328F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.63274F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.40165F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.006529F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 958F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel1.Controls.Add(this.chartControl1, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.uc_GraphOption1, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.uc_AlarmHistory1, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.uc_Alert1, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.uc_WorkingData1, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.uc_OptionButton1, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.uc_GraphOption1, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
@@ -117,36 +117,25 @@
             this.chartControl1.Size = new System.Drawing.Size(496, 504);
             this.chartControl1.TabIndex = 20;
             // 
-            // uc_GraphOption1
-            // 
-            this.uc_GraphOption1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.SetColumnSpan(this.uc_GraphOption1, 3);
-            this.uc_GraphOption1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_GraphOption1.Location = new System.Drawing.Point(1408, 657);
-            this.uc_GraphOption1.Margin = new System.Windows.Forms.Padding(0);
-            this.uc_GraphOption1.Name = "uc_GraphOption1";
-            this.uc_GraphOption1.Size = new System.Drawing.Size(496, 70);
-            this.uc_GraphOption1.TabIndex = 21;
-            // 
             // uc_AlarmHistory1
             // 
             this.uc_AlarmHistory1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.SetColumnSpan(this.uc_AlarmHistory1, 2);
             this.uc_AlarmHistory1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_AlarmHistory1.Location = new System.Drawing.Point(1713, 946);
+            this.uc_AlarmHistory1.Location = new System.Drawing.Point(1743, 946);
             this.uc_AlarmHistory1.Margin = new System.Windows.Forms.Padding(5);
             this.uc_AlarmHistory1.Name = "uc_AlarmHistory1";
-            this.uc_AlarmHistory1.Size = new System.Drawing.Size(186, 90);
+            this.uc_AlarmHistory1.Size = new System.Drawing.Size(156, 90);
             this.uc_AlarmHistory1.TabIndex = 23;
             // 
             // uc_Alert1
             // 
             this.uc_Alert1.BackColor = System.Drawing.Color.Transparent;
             this.uc_Alert1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_Alert1.Location = new System.Drawing.Point(1418, 951);
-            this.uc_Alert1.Margin = new System.Windows.Forms.Padding(10);
+            this.uc_Alert1.Location = new System.Drawing.Point(1411, 951);
+            this.uc_Alert1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.uc_Alert1.Name = "uc_Alert1";
-            this.uc_Alert1.Size = new System.Drawing.Size(280, 80);
+            this.uc_Alert1.Size = new System.Drawing.Size(324, 80);
             this.uc_Alert1.TabIndex = 26;
             // 
             // tableLayoutPanel2
@@ -200,6 +189,7 @@
             this.NodeGroup_FrontLower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.NodeGroup_FrontLower.BackColor = System.Drawing.Color.Transparent;
             this.NodeGroup_FrontLower.Location = new System.Drawing.Point(10, 420);
+            this.NodeGroup_FrontLower.Margin = new System.Windows.Forms.Padding(0);
             this.NodeGroup_FrontLower.Name = "NodeGroup_FrontLower";
             this.NodeGroup_FrontLower.Size = new System.Drawing.Size(675, 200);
             this.NodeGroup_FrontLower.TabIndex = 11;
@@ -312,6 +302,7 @@
             this.NodeGroup_BackLower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.NodeGroup_BackLower.BackColor = System.Drawing.Color.Transparent;
             this.NodeGroup_BackLower.Location = new System.Drawing.Point(10, 420);
+            this.NodeGroup_BackLower.Margin = new System.Windows.Forms.Padding(0);
             this.NodeGroup_BackLower.Name = "NodeGroup_BackLower";
             this.NodeGroup_BackLower.Size = new System.Drawing.Size(675, 200);
             this.NodeGroup_BackLower.TabIndex = 12;
@@ -492,7 +483,7 @@
             this.uc_WorkingData1.Location = new System.Drawing.Point(1408, 804);
             this.uc_WorkingData1.Margin = new System.Windows.Forms.Padding(0);
             this.uc_WorkingData1.Name = "uc_WorkingData1";
-            this.uc_WorkingData1.Size = new System.Drawing.Size(364, 137);
+            this.uc_WorkingData1.Size = new System.Drawing.Size(359, 137);
             this.uc_WorkingData1.TabIndex = 32;
             // 
             // uc_OptionButton1
@@ -501,11 +492,24 @@
             this.uc_OptionButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uc_OptionButton1.BackgroundImage")));
             this.uc_OptionButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.uc_OptionButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_OptionButton1.Location = new System.Drawing.Point(1782, 814);
+            this.uc_OptionButton1.Location = new System.Drawing.Point(1777, 814);
             this.uc_OptionButton1.Margin = new System.Windows.Forms.Padding(10);
             this.uc_OptionButton1.Name = "uc_OptionButton1";
-            this.uc_OptionButton1.Size = new System.Drawing.Size(112, 117);
+            this.uc_OptionButton1.Size = new System.Drawing.Size(117, 117);
             this.uc_OptionButton1.TabIndex = 33;
+            // 
+            // uc_GraphOption1
+            // 
+            this.uc_GraphOption1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.SetColumnSpan(this.uc_GraphOption1, 3);
+            this.uc_GraphOption1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc_GraphOption1.Location = new System.Drawing.Point(1408, 657);
+            this.uc_GraphOption1.Margin = new System.Windows.Forms.Padding(0);
+            this.uc_GraphOption1.Name = "uc_GraphOption1";
+            this.uc_GraphOption1.Selectedsensor = null;
+            this.uc_GraphOption1.SelectedTime = null;
+            this.uc_GraphOption1.Size = new System.Drawing.Size(496, 70);
+            this.uc_GraphOption1.TabIndex = 34;
             // 
             // MonitoringForm
             // 
@@ -519,6 +523,7 @@
             this.Name = "MonitoringForm";
             this.Text = "DieMonitoring";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MonitoringForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -536,7 +541,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraCharts.ChartControl chartControl1;
-        private uc_GraphOption uc_GraphOption1;
         private uc_AlarmHistory uc_AlarmHistory1;
         private uc_Alert uc_Alert1;
         private uc_ProgramTimer uc_ProgramTimer1;
@@ -567,6 +571,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblback;
         private RoundBorderPanel roundBorderPanel1;
+        private uc_GraphOption uc_GraphOption1;
     }
 }
 

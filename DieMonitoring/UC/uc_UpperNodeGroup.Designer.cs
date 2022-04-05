@@ -121,77 +121,77 @@
             // 
             this.uc_DieNode1.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode1.Location = new System.Drawing.Point(172, 20);
-            this.uc_DieNode1.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode1.Location = new System.Drawing.Point(170, 15);
+            this.uc_DieNode1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode1.Name = "uc_DieNode1";
             this.uc_DieNode1.NodeNumber = "1";
-            this.uc_DieNode1.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode1.Size = new System.Drawing.Size(161, 70);
             this.uc_DieNode1.TabIndex = 1;
             // 
             // uc_DieNode2
             // 
             this.uc_DieNode2.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode2.Location = new System.Drawing.Point(339, 20);
-            this.uc_DieNode2.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode2.Location = new System.Drawing.Point(337, 15);
+            this.uc_DieNode2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode2.Name = "uc_DieNode2";
             this.uc_DieNode2.NodeNumber = "2";
-            this.uc_DieNode2.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode2.Size = new System.Drawing.Size(161, 70);
             this.uc_DieNode2.TabIndex = 2;
             // 
             // uc_DieNode3
             // 
             this.uc_DieNode3.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode3.Location = new System.Drawing.Point(506, 20);
-            this.uc_DieNode3.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode3.Location = new System.Drawing.Point(504, 15);
+            this.uc_DieNode3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode3.Name = "uc_DieNode3";
             this.uc_DieNode3.NodeNumber = "3";
-            this.uc_DieNode3.Size = new System.Drawing.Size(159, 60);
+            this.uc_DieNode3.Size = new System.Drawing.Size(163, 70);
             this.uc_DieNode3.TabIndex = 3;
             // 
             // uc_DieNode4
             // 
             this.uc_DieNode4.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode4.Location = new System.Drawing.Point(5, 120);
-            this.uc_DieNode4.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode4.Location = new System.Drawing.Point(3, 115);
+            this.uc_DieNode4.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode4.Name = "uc_DieNode4";
             this.uc_DieNode4.NodeNumber = "4";
-            this.uc_DieNode4.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode4.Size = new System.Drawing.Size(161, 70);
             this.uc_DieNode4.TabIndex = 4;
             // 
             // uc_DieNode5
             // 
             this.uc_DieNode5.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode5.Location = new System.Drawing.Point(172, 120);
-            this.uc_DieNode5.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode5.Location = new System.Drawing.Point(170, 115);
+            this.uc_DieNode5.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode5.Name = "uc_DieNode5";
             this.uc_DieNode5.NodeNumber = "5";
-            this.uc_DieNode5.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode5.Size = new System.Drawing.Size(161, 70);
             this.uc_DieNode5.TabIndex = 5;
             // 
             // uc_DieNode6
             // 
             this.uc_DieNode6.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode6.Location = new System.Drawing.Point(339, 120);
-            this.uc_DieNode6.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode6.Location = new System.Drawing.Point(337, 115);
+            this.uc_DieNode6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode6.Name = "uc_DieNode6";
             this.uc_DieNode6.NodeNumber = "6";
-            this.uc_DieNode6.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode6.Size = new System.Drawing.Size(161, 70);
             this.uc_DieNode6.TabIndex = 6;
             // 
             // uc_DieNode7
             // 
             this.uc_DieNode7.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode7.Location = new System.Drawing.Point(506, 120);
-            this.uc_DieNode7.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode7.Location = new System.Drawing.Point(504, 115);
+            this.uc_DieNode7.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode7.Name = "uc_DieNode7";
             this.uc_DieNode7.NodeNumber = "7";
-            this.uc_DieNode7.Size = new System.Drawing.Size(159, 60);
+            this.uc_DieNode7.Size = new System.Drawing.Size(163, 70);
             this.uc_DieNode7.TabIndex = 7;
             // 
             // uc_UpperNodeGroup

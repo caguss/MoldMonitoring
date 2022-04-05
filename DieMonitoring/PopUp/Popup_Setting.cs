@@ -43,6 +43,24 @@ namespace DieMonitoring
 
             parentdata = parent;
             lbl_FormName.Text = "옵션설정";
+
+            DataTable sensor_mst;
+            try
+            {
+                DataConnector con = new DataConnector();
+                sensor_mst = con.mornitoring_Graph_R10();
+                for (int i = 0; i < sensor_mst.Rows.Count; i++)
+                {
+                    cb_SensorList.Items.Add($"{sensor_mst.Rows[i]["gr"].ToString()}-{sensor_mst.Rows[i]["rsc"].ToString()}");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
+
         }
 
         private void Popup_Setting_FormClosed(object sender, FormClosedEventArgs e)

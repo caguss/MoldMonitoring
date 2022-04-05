@@ -66,8 +66,8 @@ namespace DieMonitoring
 
         private void ExitAction_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Application.Exit();
 
+            Application.Exit();
         }
 
 

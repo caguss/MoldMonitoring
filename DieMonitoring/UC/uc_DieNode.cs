@@ -38,7 +38,8 @@ namespace DieMonitoring
 
         #endregion
 
-        public int alarmvalue = 30;
+        public double high_limit = 30;
+        public double low_limit = 10;
         private string nodenumber = "0";
 
         [Category("RJ Code - Appearance")]
@@ -62,12 +63,18 @@ namespace DieMonitoring
             //lbl_format.Font = Program.Normalfont;
         }
 
-   
+        public void SetLimit(string high_value, string low_value)
+        {
+            high_limit = Convert.ToDouble(high_value);
+            low_limit = Convert.ToDouble(low_value);
+        }
 
         public void ChangeValue(string value)
         {
-            lblValue.Text = value + "℃";
-            if (Convert.ToInt32(value) >= alarmvalue)
+            lblValue.Invoke((MethodInvoker)delegate () {
+                lblValue.Text = ((int)Convert.ToDouble(value)).ToString();
+            });
+            if (Convert.ToDouble(value) >= high_limit || Convert.ToDouble(value) <= low_limit)
             {
                 RedAlarm();
             }
@@ -81,8 +88,18 @@ namespace DieMonitoring
         }
         public void ChangeValue(int value)
         {
-            lblValue.Text = value.ToString() + "℃";
-            SafeAlarm();
+            lblValue.Invoke((MethodInvoker)delegate () {
+                lblValue.Text = value.ToString();
+            });
+            if (Convert.ToDouble(value) >= high_limit || Convert.ToDouble(value) <= low_limit)
+            {
+                RedAlarm();
+            }
+            else
+            {
+                SafeAlarm();
+            }
+
 
 
         }
@@ -115,17 +132,6 @@ namespace DieMonitoring
                 lbl_format.ForeColor = Color.Red;
             });
 
-        }
-
-
-        /// <summary>
-        /// test method
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Node_Click(object sender, EventArgs e)
-        {
-            ChangeValue(100);
         }
     }
 }

@@ -36,21 +36,24 @@ namespace DieMonitoring
         }
 
         #endregion
+        string logseq;
 
         public uc_AlarmHistoryNode()
         {
             InitializeComponent();
         }
 
-        public uc_AlarmHistoryNode(string alarmString, DateTime OccurTime)
+        public uc_AlarmHistoryNode(string seq, string alarmString, DateTime OccurTime)
         {
             InitializeComponent();
+            logseq = seq;
             lbl_AlarmString.Text = alarmString;
             lbl_OccurTime.Text = OccurTime.ToString("yyyy-mm-dd tt hh:mm:ss");
         }
-        public uc_AlarmHistoryNode(string alarmString, string OccurTime)
+        public uc_AlarmHistoryNode(string seq,string alarmString, string OccurTime)
         {
             InitializeComponent();
+            logseq = seq;
             lbl_AlarmString.Text = alarmString;
             lbl_OccurTime.Text = OccurTime;
         }
@@ -71,13 +74,15 @@ namespace DieMonitoring
         public void ChangeCheckYN()
         {
             //DB CheckYN 변경
-
+            DataConnector con = new DataConnector();
+            con.mornitoring_AlarmList_U10(logseq);
         }
 
         public void ChangeUseYN()
         {
             //DB UseYN 변경
-
+            DataConnector con = new DataConnector();
+            con.mornitoring_AlarmList_D10(logseq);
         }
     }
 }

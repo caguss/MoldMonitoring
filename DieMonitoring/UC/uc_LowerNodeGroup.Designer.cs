@@ -58,7 +58,7 @@
             this.roundBorderPanel6.Name = "roundBorderPanel6";
             this.roundBorderPanel6.Radius = 20;
             this.roundBorderPanel6.RoundPadding = 2;
-            this.roundBorderPanel6.Size = new System.Drawing.Size(670, 200);
+            this.roundBorderPanel6.Size = new System.Drawing.Size(675, 200);
             this.roundBorderPanel6.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -83,7 +83,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 200);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(675, 200);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // roundBorderPanel8
@@ -101,7 +101,7 @@
             this.roundBorderPanel8.Name = "roundBorderPanel8";
             this.roundBorderPanel8.Radius = 10;
             this.roundBorderPanel8.RoundPadding = 2;
-            this.roundBorderPanel8.Size = new System.Drawing.Size(147, 70);
+            this.roundBorderPanel8.Size = new System.Drawing.Size(148, 70);
             this.roundBorderPanel8.TabIndex = 0;
             // 
             // lbl_title
@@ -111,7 +111,7 @@
             this.lbl_title.ForeColor = System.Drawing.Color.White;
             this.lbl_title.Location = new System.Drawing.Point(0, 0);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(147, 70);
+            this.lbl_title.Size = new System.Drawing.Size(148, 70);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "하형";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,77 +121,77 @@
             // 
             this.uc_DieNode1.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode1.Location = new System.Drawing.Point(172, 20);
-            this.uc_DieNode1.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode1.Location = new System.Drawing.Point(171, 15);
+            this.uc_DieNode1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode1.Name = "uc_DieNode1";
             this.uc_DieNode1.NodeNumber = "1";
-            this.uc_DieNode1.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode1.Size = new System.Drawing.Size(162, 70);
             this.uc_DieNode1.TabIndex = 1;
             // 
             // uc_DieNode2
             // 
             this.uc_DieNode2.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode2.Location = new System.Drawing.Point(339, 20);
-            this.uc_DieNode2.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode2.Location = new System.Drawing.Point(339, 15);
+            this.uc_DieNode2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode2.Name = "uc_DieNode2";
             this.uc_DieNode2.NodeNumber = "2";
-            this.uc_DieNode2.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode2.Size = new System.Drawing.Size(162, 70);
             this.uc_DieNode2.TabIndex = 2;
             // 
             // uc_DieNode3
             // 
             this.uc_DieNode3.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode3.Location = new System.Drawing.Point(506, 20);
-            this.uc_DieNode3.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode3.Location = new System.Drawing.Point(507, 15);
+            this.uc_DieNode3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode3.Name = "uc_DieNode3";
             this.uc_DieNode3.NodeNumber = "3";
-            this.uc_DieNode3.Size = new System.Drawing.Size(159, 60);
+            this.uc_DieNode3.Size = new System.Drawing.Size(165, 70);
             this.uc_DieNode3.TabIndex = 3;
             // 
             // uc_DieNode4
             // 
             this.uc_DieNode4.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode4.Location = new System.Drawing.Point(5, 120);
-            this.uc_DieNode4.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode4.Location = new System.Drawing.Point(3, 115);
+            this.uc_DieNode4.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode4.Name = "uc_DieNode4";
             this.uc_DieNode4.NodeNumber = "4";
-            this.uc_DieNode4.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode4.Size = new System.Drawing.Size(162, 70);
             this.uc_DieNode4.TabIndex = 4;
             // 
             // uc_DieNode5
             // 
             this.uc_DieNode5.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode5.Location = new System.Drawing.Point(172, 120);
-            this.uc_DieNode5.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode5.Location = new System.Drawing.Point(171, 115);
+            this.uc_DieNode5.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode5.Name = "uc_DieNode5";
             this.uc_DieNode5.NodeNumber = "5";
-            this.uc_DieNode5.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode5.Size = new System.Drawing.Size(162, 70);
             this.uc_DieNode5.TabIndex = 5;
             // 
             // uc_DieNode6
             // 
             this.uc_DieNode6.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode6.Location = new System.Drawing.Point(339, 120);
-            this.uc_DieNode6.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode6.Location = new System.Drawing.Point(339, 115);
+            this.uc_DieNode6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode6.Name = "uc_DieNode6";
             this.uc_DieNode6.NodeNumber = "6";
-            this.uc_DieNode6.Size = new System.Drawing.Size(157, 60);
+            this.uc_DieNode6.Size = new System.Drawing.Size(162, 70);
             this.uc_DieNode6.TabIndex = 6;
             // 
             // uc_DieNode7
             // 
             this.uc_DieNode7.BackColor = System.Drawing.Color.Transparent;
             this.uc_DieNode7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_DieNode7.Location = new System.Drawing.Point(506, 120);
-            this.uc_DieNode7.Margin = new System.Windows.Forms.Padding(5, 20, 5, 20);
+            this.uc_DieNode7.Location = new System.Drawing.Point(507, 115);
+            this.uc_DieNode7.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.uc_DieNode7.Name = "uc_DieNode7";
             this.uc_DieNode7.NodeNumber = "7";
-            this.uc_DieNode7.Size = new System.Drawing.Size(159, 60);
+            this.uc_DieNode7.Size = new System.Drawing.Size(165, 70);
             this.uc_DieNode7.TabIndex = 7;
             // 
             // uc_LowerNodeGroup
@@ -201,8 +201,9 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.roundBorderPanel6);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_LowerNodeGroup";
-            this.Size = new System.Drawing.Size(670, 200);
+            this.Size = new System.Drawing.Size(675, 200);
             this.roundBorderPanel6.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.roundBorderPanel8.ResumeLayout(false);

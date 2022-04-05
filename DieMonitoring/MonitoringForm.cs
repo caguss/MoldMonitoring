@@ -53,13 +53,20 @@ namespace DieMonitoring
         public MonitoringForm()
         {
             InitializeComponent();
-            _tmrSecondTimer = new System.Threading.Timer(_tmrConnectionError_Callback, null, 1000, 1000);
+            _tmrSecondTimer = new System.Threading.Timer(_tmrConnection_Callback, null, 3000, 1000);
             //lbl_MoldName.Font = Program.BigFont;
             //lblback.Font = Program.TitleFont;
             //lblfront.Font = Program.TitleFont;
+
+            //1.금형 Init
+            lbl_MoldName.Text = Properties.Settings.Default.LastMoldName;
+            //2.센서별 상하한치 Init
+
         }
-        private void _tmrConnectionError_Callback(object state)
+        private void _tmrConnection_Callback(object state)
         {
+            #region connection 끊김시 전면 후면 깜빡임
+            //센서별 끊긴 센서의 최대치 불러오는 코드 필요
             if (frontsecondcnt >= maxcnt)
             {
                 if (!frontisRed)
@@ -97,7 +104,53 @@ namespace DieMonitoring
             }
             frontsecondcnt++;
             backsecondcnt++;
+            #endregion
+            try
+            {
+                DataConnector con = new DataConnector();
+                DataSet ds = con.monitoring_sensor_R10();
 
+
+                #region 온도 데이터 Load
+
+                //ds.Tables[0] : 태그별 온도 센서
+                //ds.Tables[1] : IN/OUT 유량
+                //ds.Tables[2] : 알람 건수
+                //ds.Tables[3] : 타공수
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    switch (ds.Tables[0].Rows[i]["gr"].ToString())
+                    {
+                        case "1": //전면 상단
+                            NodeGroup_FrontUpper.ChangeNodeValue(ds.Tables[0].Rows[i]["rsc"].ToString(), ds.Tables[0].Rows[i]["vl"].ToString());
+                            break;
+                        case "2": //전면 하단
+                            NodeGroup_FrontLower.ChangeNodeValue(ds.Tables[0].Rows[i]["rsc"].ToString(), ds.Tables[0].Rows[i]["vl"].ToString());
+                            break;
+                        case "3": //후면 상단
+                            NodeGroup_BackUpper.ChangeNodeValue(ds.Tables[0].Rows[i]["rsc"].ToString(), ds.Tables[0].Rows[i]["vl"].ToString());
+                            break;
+                        case "4": //후면 하단
+                            NodeGroup_BackLower.ChangeNodeValue(ds.Tables[0].Rows[i]["rsc"].ToString(), ds.Tables[0].Rows[i]["vl"].ToString());
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                #endregion
+                #region 알림 갯수 Load
+                uc_Alert1.AlertLoad(ds.Tables[2].Rows[0]["cnt"].ToString());
+                #endregion
+                #region press 타공 횟수 Load
+                uc_PressCount2.PressCntLoad(ds.Tables[3].Rows[0]["Totalcnt"].ToString(), ds.Tables[3].Rows[0]["Todaycnt"].ToString());
+                #endregion
+            }
+            catch (Exception ex)
+            {
+            }
+           
         }
 
         private void lblfront_Click(object sender, EventArgs e)
@@ -141,6 +194,16 @@ namespace DieMonitoring
                 Popup_MoldManager modal = new Popup_MoldManager(this);
                 modal.Show();
             }
+        }
+
+        private void MonitoringForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.LastMoldName = lbl_MoldName.Text;
+            if (Popup_MoldManager.moldDic != null)
+            {
+                Properties.Settings.Default.LastMoldCode = Popup_MoldManager.moldDic.FirstOrDefault(x => x.Value == lbl_MoldName.Text).Key;
+            }
+            Properties.Settings.Default.Save();
         }
     }
 }

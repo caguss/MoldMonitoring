@@ -41,15 +41,15 @@
             this.customComboBox2 = new DieMonitoring.CustomComboBox();
             this.customComboBox3 = new DieMonitoring.CustomComboBox();
             this.customComboBox4 = new DieMonitoring.CustomComboBox();
-            this.customComboBox5 = new DieMonitoring.CustomComboBox();
+            this.cb_SensorList = new DieMonitoring.CustomComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.customComboBox6 = new DieMonitoring.CustomComboBox();
-            this.customComboBox7 = new DieMonitoring.CustomComboBox();
-            this.customComboBox8 = new DieMonitoring.CustomComboBox();
-            this.customComboBox9 = new DieMonitoring.CustomComboBox();
+            this.cb_SensorTerm = new DieMonitoring.CustomComboBox();
+            this.cb_acceleration_Range = new DieMonitoring.CustomComboBox();
+            this.cb_acceleration_Threshold = new DieMonitoring.CustomComboBox();
+            this.cb_acceleration_Detect = new DieMonitoring.CustomComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -96,15 +96,15 @@
             this.tableLayoutPanel2.Controls.Add(this.customComboBox2, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.customComboBox3, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.customComboBox4, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.customComboBox5, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.cb_SensorList, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.label9, 0, 9);
             this.tableLayoutPanel2.Controls.Add(this.label10, 0, 10);
             this.tableLayoutPanel2.Controls.Add(this.label11, 0, 8);
-            this.tableLayoutPanel2.Controls.Add(this.customComboBox6, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.customComboBox7, 1, 8);
-            this.tableLayoutPanel2.Controls.Add(this.customComboBox8, 1, 9);
-            this.tableLayoutPanel2.Controls.Add(this.customComboBox9, 1, 10);
+            this.tableLayoutPanel2.Controls.Add(this.cb_SensorTerm, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.cb_acceleration_Range, 1, 8);
+            this.tableLayoutPanel2.Controls.Add(this.cb_acceleration_Threshold, 1, 9);
+            this.tableLayoutPanel2.Controls.Add(this.cb_acceleration_Detect, 1, 10);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 11);
             this.tableLayoutPanel2.Controls.Add(this.label13, 0, 12);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 12);
@@ -208,7 +208,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(783, 65);
             this.label6.TabIndex = 5;
-            this.label6.Text = "온도 TAG 설정";
+            this.label6.Text = "센서 설정";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -221,7 +221,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(391, 50);
             this.label7.TabIndex = 6;
-            this.label7.Text = "TAG 선택";
+            this.label7.Text = "센서 선택";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // customComboBox1
@@ -304,25 +304,25 @@
             this.customComboBox4.TabIndex = 10;
             this.customComboBox4.Texts = "";
             // 
-            // customComboBox5
+            // cb_SensorList
             // 
-            this.customComboBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox5.BorderColor = System.Drawing.Color.White;
-            this.customComboBox5.BorderSize = 2;
-            this.customComboBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.customComboBox5.Font = new System.Drawing.Font("맑은 고딕", 18F);
-            this.customComboBox5.ForeColor = System.Drawing.Color.White;
-            this.customComboBox5.IconColor = System.Drawing.Color.White;
-            this.customComboBox5.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox5.ListTextColor = System.Drawing.Color.White;
-            this.customComboBox5.Location = new System.Drawing.Point(394, 333);
-            this.customComboBox5.MinimumSize = new System.Drawing.Size(100, 30);
-            this.customComboBox5.Name = "customComboBox5";
-            this.customComboBox5.Padding = new System.Windows.Forms.Padding(2);
-            this.customComboBox5.Size = new System.Drawing.Size(386, 44);
-            this.customComboBox5.TabIndex = 11;
-            this.customComboBox5.Texts = "";
+            this.cb_SensorList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_SensorList.BorderColor = System.Drawing.Color.White;
+            this.cb_SensorList.BorderSize = 2;
+            this.cb_SensorList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cb_SensorList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cb_SensorList.Font = new System.Drawing.Font("맑은 고딕", 18F);
+            this.cb_SensorList.ForeColor = System.Drawing.Color.White;
+            this.cb_SensorList.IconColor = System.Drawing.Color.White;
+            this.cb_SensorList.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_SensorList.ListTextColor = System.Drawing.Color.White;
+            this.cb_SensorList.Location = new System.Drawing.Point(394, 333);
+            this.cb_SensorList.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cb_SensorList.Name = "cb_SensorList";
+            this.cb_SensorList.Padding = new System.Windows.Forms.Padding(2);
+            this.cb_SensorList.Size = new System.Drawing.Size(386, 44);
+            this.cb_SensorList.TabIndex = 11;
+            this.cb_SensorList.Texts = "";
             // 
             // label8
             // 
@@ -376,85 +376,85 @@
             this.label11.Text = "가속도 범위";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // customComboBox6
+            // cb_SensorTerm
             // 
-            this.customComboBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox6.BorderColor = System.Drawing.Color.White;
-            this.customComboBox6.BorderSize = 2;
-            this.customComboBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.customComboBox6.Font = new System.Drawing.Font("맑은 고딕", 18F);
-            this.customComboBox6.ForeColor = System.Drawing.Color.White;
-            this.customComboBox6.IconColor = System.Drawing.Color.White;
-            this.customComboBox6.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox6.ListTextColor = System.Drawing.Color.White;
-            this.customComboBox6.Location = new System.Drawing.Point(394, 383);
-            this.customComboBox6.MinimumSize = new System.Drawing.Size(100, 30);
-            this.customComboBox6.Name = "customComboBox6";
-            this.customComboBox6.Padding = new System.Windows.Forms.Padding(2);
-            this.customComboBox6.Size = new System.Drawing.Size(386, 44);
-            this.customComboBox6.TabIndex = 16;
-            this.customComboBox6.Texts = "";
+            this.cb_SensorTerm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_SensorTerm.BorderColor = System.Drawing.Color.White;
+            this.cb_SensorTerm.BorderSize = 2;
+            this.cb_SensorTerm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cb_SensorTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cb_SensorTerm.Font = new System.Drawing.Font("맑은 고딕", 18F);
+            this.cb_SensorTerm.ForeColor = System.Drawing.Color.White;
+            this.cb_SensorTerm.IconColor = System.Drawing.Color.White;
+            this.cb_SensorTerm.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_SensorTerm.ListTextColor = System.Drawing.Color.White;
+            this.cb_SensorTerm.Location = new System.Drawing.Point(394, 383);
+            this.cb_SensorTerm.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cb_SensorTerm.Name = "cb_SensorTerm";
+            this.cb_SensorTerm.Padding = new System.Windows.Forms.Padding(2);
+            this.cb_SensorTerm.Size = new System.Drawing.Size(386, 44);
+            this.cb_SensorTerm.TabIndex = 16;
+            this.cb_SensorTerm.Texts = "";
             // 
-            // customComboBox7
+            // cb_acceleration_Range
             // 
-            this.customComboBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox7.BorderColor = System.Drawing.Color.White;
-            this.customComboBox7.BorderSize = 2;
-            this.customComboBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.customComboBox7.Font = new System.Drawing.Font("맑은 고딕", 18F);
-            this.customComboBox7.ForeColor = System.Drawing.Color.White;
-            this.customComboBox7.IconColor = System.Drawing.Color.White;
-            this.customComboBox7.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox7.ListTextColor = System.Drawing.Color.White;
-            this.customComboBox7.Location = new System.Drawing.Point(394, 433);
-            this.customComboBox7.MinimumSize = new System.Drawing.Size(100, 30);
-            this.customComboBox7.Name = "customComboBox7";
-            this.customComboBox7.Padding = new System.Windows.Forms.Padding(2);
-            this.customComboBox7.Size = new System.Drawing.Size(386, 44);
-            this.customComboBox7.TabIndex = 17;
-            this.customComboBox7.Texts = "";
+            this.cb_acceleration_Range.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_acceleration_Range.BorderColor = System.Drawing.Color.White;
+            this.cb_acceleration_Range.BorderSize = 2;
+            this.cb_acceleration_Range.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cb_acceleration_Range.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cb_acceleration_Range.Font = new System.Drawing.Font("맑은 고딕", 18F);
+            this.cb_acceleration_Range.ForeColor = System.Drawing.Color.White;
+            this.cb_acceleration_Range.IconColor = System.Drawing.Color.White;
+            this.cb_acceleration_Range.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_acceleration_Range.ListTextColor = System.Drawing.Color.White;
+            this.cb_acceleration_Range.Location = new System.Drawing.Point(394, 433);
+            this.cb_acceleration_Range.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cb_acceleration_Range.Name = "cb_acceleration_Range";
+            this.cb_acceleration_Range.Padding = new System.Windows.Forms.Padding(2);
+            this.cb_acceleration_Range.Size = new System.Drawing.Size(386, 44);
+            this.cb_acceleration_Range.TabIndex = 17;
+            this.cb_acceleration_Range.Texts = "";
             // 
-            // customComboBox8
+            // cb_acceleration_Threshold
             // 
-            this.customComboBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox8.BorderColor = System.Drawing.Color.White;
-            this.customComboBox8.BorderSize = 2;
-            this.customComboBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customComboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.customComboBox8.Font = new System.Drawing.Font("맑은 고딕", 18F);
-            this.customComboBox8.ForeColor = System.Drawing.Color.White;
-            this.customComboBox8.IconColor = System.Drawing.Color.White;
-            this.customComboBox8.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox8.ListTextColor = System.Drawing.Color.White;
-            this.customComboBox8.Location = new System.Drawing.Point(394, 483);
-            this.customComboBox8.MinimumSize = new System.Drawing.Size(100, 30);
-            this.customComboBox8.Name = "customComboBox8";
-            this.customComboBox8.Padding = new System.Windows.Forms.Padding(2);
-            this.customComboBox8.Size = new System.Drawing.Size(386, 44);
-            this.customComboBox8.TabIndex = 18;
-            this.customComboBox8.Texts = "";
+            this.cb_acceleration_Threshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_acceleration_Threshold.BorderColor = System.Drawing.Color.White;
+            this.cb_acceleration_Threshold.BorderSize = 2;
+            this.cb_acceleration_Threshold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cb_acceleration_Threshold.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cb_acceleration_Threshold.Font = new System.Drawing.Font("맑은 고딕", 18F);
+            this.cb_acceleration_Threshold.ForeColor = System.Drawing.Color.White;
+            this.cb_acceleration_Threshold.IconColor = System.Drawing.Color.White;
+            this.cb_acceleration_Threshold.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_acceleration_Threshold.ListTextColor = System.Drawing.Color.White;
+            this.cb_acceleration_Threshold.Location = new System.Drawing.Point(394, 483);
+            this.cb_acceleration_Threshold.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cb_acceleration_Threshold.Name = "cb_acceleration_Threshold";
+            this.cb_acceleration_Threshold.Padding = new System.Windows.Forms.Padding(2);
+            this.cb_acceleration_Threshold.Size = new System.Drawing.Size(386, 44);
+            this.cb_acceleration_Threshold.TabIndex = 18;
+            this.cb_acceleration_Threshold.Texts = "";
             // 
-            // customComboBox9
+            // cb_acceleration_Detect
             // 
-            this.customComboBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox9.BorderColor = System.Drawing.Color.White;
-            this.customComboBox9.BorderSize = 2;
-            this.customComboBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customComboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.customComboBox9.Font = new System.Drawing.Font("맑은 고딕", 18F);
-            this.customComboBox9.ForeColor = System.Drawing.Color.White;
-            this.customComboBox9.IconColor = System.Drawing.Color.White;
-            this.customComboBox9.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
-            this.customComboBox9.ListTextColor = System.Drawing.Color.White;
-            this.customComboBox9.Location = new System.Drawing.Point(394, 533);
-            this.customComboBox9.MinimumSize = new System.Drawing.Size(100, 30);
-            this.customComboBox9.Name = "customComboBox9";
-            this.customComboBox9.Padding = new System.Windows.Forms.Padding(2);
-            this.customComboBox9.Size = new System.Drawing.Size(386, 44);
-            this.customComboBox9.TabIndex = 19;
-            this.customComboBox9.Texts = "";
+            this.cb_acceleration_Detect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_acceleration_Detect.BorderColor = System.Drawing.Color.White;
+            this.cb_acceleration_Detect.BorderSize = 2;
+            this.cb_acceleration_Detect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cb_acceleration_Detect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cb_acceleration_Detect.Font = new System.Drawing.Font("맑은 고딕", 18F);
+            this.cb_acceleration_Detect.ForeColor = System.Drawing.Color.White;
+            this.cb_acceleration_Detect.IconColor = System.Drawing.Color.White;
+            this.cb_acceleration_Detect.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(33)))), ((int)(((byte)(38)))));
+            this.cb_acceleration_Detect.ListTextColor = System.Drawing.Color.White;
+            this.cb_acceleration_Detect.Location = new System.Drawing.Point(394, 533);
+            this.cb_acceleration_Detect.MinimumSize = new System.Drawing.Size(100, 30);
+            this.cb_acceleration_Detect.Name = "cb_acceleration_Detect";
+            this.cb_acceleration_Detect.Padding = new System.Windows.Forms.Padding(2);
+            this.cb_acceleration_Detect.Size = new System.Drawing.Size(386, 44);
+            this.cb_acceleration_Detect.TabIndex = 19;
+            this.cb_acceleration_Detect.Texts = "";
             // 
             // label12
             // 
@@ -616,15 +616,15 @@
         private CustomComboBox customComboBox2;
         private CustomComboBox customComboBox3;
         private CustomComboBox customComboBox4;
-        private CustomComboBox customComboBox5;
+        private CustomComboBox cb_SensorList;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private CustomComboBox customComboBox6;
-        private CustomComboBox customComboBox7;
-        private CustomComboBox customComboBox8;
-        private CustomComboBox customComboBox9;
+        private CustomComboBox cb_SensorTerm;
+        private CustomComboBox cb_acceleration_Range;
+        private CustomComboBox cb_acceleration_Threshold;
+        private CustomComboBox cb_acceleration_Detect;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel3;

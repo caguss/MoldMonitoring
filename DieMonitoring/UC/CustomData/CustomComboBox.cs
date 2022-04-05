@@ -20,7 +20,7 @@ namespace DieMonitoring
         private Color listTextColor = Color.White;
         private Color borderColor = Color.White;
         private int borderSize = 2;
-        private Font localfont = new Font("맑은 고딕", 18f);
+        private Font localfont = new Font("맑은 고딕", 14f);
         //Items
         private ComboBox cmbList;
         private Label lblText;
@@ -81,7 +81,7 @@ namespace DieMonitoring
 
         private void AdjustComboBoxDimensions()
         {
-            cmbList.Width = lblText.Width;
+            cmbList.Width = lblText.Width+20;
             cmbList.DropDownHeight = 200;
             cmbList.Location = new Point()
             {

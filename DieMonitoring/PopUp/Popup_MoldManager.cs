@@ -38,12 +38,23 @@ namespace DieMonitoring
         #endregion
 
         MonitoringForm parentdata;
+        public static Dictionary<string, string> moldDic = null;
+
         public Popup_MoldManager(MonitoringForm parent)
         {
             InitializeComponent();
 
             parentdata = parent;
             lbl_FormName.Text = "금형관리";
+            //lb_Moldlist DB를 통한 새로고침
+            DataConnector con = new DataConnector();
+            moldDic = con.mornitoring_MoldList_R10();
+
+            foreach (var item in moldDic.Values)
+            {
+                lb_MoldList.Items.Add(item);
+            }
+
         }
 
         private void Popup_Setting_FormClosed(object sender, FormClosedEventArgs e)
@@ -58,8 +69,12 @@ namespace DieMonitoring
 
         private void lb_MoldList_SelectedValueChanged(object sender, EventArgs e)
         {
-            parentdata.lbl_MoldName.Text = lb_MoldList.SelectedItem.ToString();
-            this.Close();
+            if (lb_MoldList.SelectedItem != null)
+            {
+                parentdata.lbl_MoldName.Text = lb_MoldList.SelectedItem.ToString();
+                this.Close();
+            }
+        
         }
     }
 }

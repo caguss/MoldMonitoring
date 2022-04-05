@@ -44,10 +44,6 @@
             this.lb_MoldList.ForeColor = System.Drawing.Color.White;
             this.lb_MoldList.FormattingEnabled = true;
             this.lb_MoldList.ItemHeight = 37;
-            this.lb_MoldList.Items.AddRange(new object[] {
-            "test",
-            "가나다",
-            "테스트"});
             this.lb_MoldList.Location = new System.Drawing.Point(0, 75);
             this.lb_MoldList.Margin = new System.Windows.Forms.Padding(0);
             this.lb_MoldList.Name = "lb_MoldList";

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DieMonitoring
 {
-
     public partial class uc_GraphOption : UserControl
     {
+
         #region .. Double Buffered function ..
         public static void SetDoubleBuffered(System.Windows.Forms.Control c)
         {
@@ -35,8 +35,16 @@ namespace DieMonitoring
                 return cp;
             }
         }
-
         #endregion
+
+
+        //추후 rsc로 변경하는 작업 필요
+        public string Selectedsensor { get => selectedsensor; set => selectedsensor = value; }
+        public string SelectedTime { get => selectedtime; set => selectedtime = value; }
+
+        private DataTable sensor_mst;
+        private string selectedsensor;
+        private string selectedtime;
         public uc_GraphOption()
         {
             InitializeComponent();
@@ -48,10 +56,9 @@ namespace DieMonitoring
 
             //    }
             //}
-            
 
             AddTimeOptionItems(); //시간선택 데이터
-            AddSensorOptionItems(); //시간선택 데이터
+            AddSensorOptionItems(); //센서선택 데이터
         }
 
 
@@ -69,39 +76,29 @@ namespace DieMonitoring
             cb_TimeOption.Items.Add("12시간");
             cb_TimeOption.Items.Add("24시간");
             cb_TimeOption.Items.Add("7일");
-            cb_TimeOption.Items.Add("31일");
         }
         /// <summary>
         /// test method
         /// </summary>
         private void AddSensorOptionItems()
         {
-            cb_SensorOption.Items.Add("센서1");
-            cb_SensorOption.Items.Add("센서2");
-            cb_SensorOption.Items.Add("센서3");
-            cb_SensorOption.Items.Add("센서4");
-            cb_SensorOption.Items.Add("센서5");
-            cb_SensorOption.Items.Add("센서6");
-            cb_SensorOption.Items.Add("센서7");
-            cb_SensorOption.Items.Add("센서8");
-            cb_SensorOption.Items.Add("센서9");
-            cb_SensorOption.Items.Add("센서10");
-            cb_SensorOption.Items.Add("센서11");
-            cb_SensorOption.Items.Add("센서12");
-            cb_SensorOption.Items.Add("센서13");
-            cb_SensorOption.Items.Add("센서14");
-            cb_SensorOption.Items.Add("센서15");
-            cb_SensorOption.Items.Add("센서16");
-            cb_SensorOption.Items.Add("센서17");
-            cb_SensorOption.Items.Add("센서18");
-            cb_SensorOption.Items.Add("센서19");
-            cb_SensorOption.Items.Add("센서20");
-            cb_SensorOption.Items.Add("센서21");
-            cb_SensorOption.Items.Add("센서22");
-            cb_SensorOption.Items.Add("센서23");
-            cb_SensorOption.Items.Add("센서24");
+            //try
+            //{
+            //    DataConnector con = new DataConnector();
+            //    sensor_mst = con.mornitoring_Graph_R10();
+            //    for (int i = 0; i < sensor_mst.Rows.Count; i++)
+            //    {
+            //        cb_SensorOption.Items.Add(sensor_mst.Rows[i]["rsn"].ToString());
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+
+            //}
+
+
         }
-
-
     }
 }

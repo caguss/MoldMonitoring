@@ -121,7 +121,6 @@
             this.lblTodayCnt.TabIndex = 1;
             this.lblTodayCnt.Text = "000,000,000,000";
             this.lblTodayCnt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblTodayCnt.Click += new System.EventHandler(this.lblTodayCnt_Click);
             // 
             // roundBorderPanel2
             // 

@@ -38,41 +38,105 @@ namespace DieMonitoring
 
         #endregion
 
-        uc_AlarmHistory parentdata;
+        object parentdata;
+        string parentType = "";
+        string filter_CheckYN = "N";
+        int nowalarmcnt = 0;
+
         DateTime opentime = DateTime.Now;
-        System.Threading.Timer _tmr5SecondTimer = null;
+        System.Threading.Timer _tmr10SecondTimer = null;
 
         public Popup_AlertHistory(uc_AlarmHistory parent)
         {
             InitializeComponent();
-            _tmr5SecondTimer = new System.Threading.Timer(_tmrCheckAlarm_Callback, null, 10000, 5000);
+            _tmr10SecondTimer = new System.Threading.Timer(_tmrCheckAlarm_Callback, null, 3000, 10000);
             parentdata = parent;
+            parentType = parent.GetType().ToString();
             lbl_FormName.Text = "알람이력";
 
-            for (int i = 0; i < 20; i++)
+            DataConnector con = new DataConnector();
+            DataTable dt = con.mornitoring_AlarmList_R10("A");
+            nowalarmcnt = dt.Rows.Count;
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                AlarmAdd(i.ToString());
+                AlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
             }
             tlp_ControlPanel.Focus();
+
+            filter_CheckYN = "A";
+        }
+
+        public Popup_AlertHistory(uc_Alert parent)
+        {
+            InitializeComponent();
+            _tmr10SecondTimer = new System.Threading.Timer(_tmrCheckAlarm_Callback, null, 3000, 5000);
+            parentdata = parent;
+            parentType = parent.GetType().ToString();
+            lbl_FormName.Text = "알람이력";
+
+
+            DataConnector con = new DataConnector();
+            DataTable dt = con.mornitoring_AlarmList_R10("N");
+            nowalarmcnt = dt.Rows.Count;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                AlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
+            }
+            tlp_ControlPanel.Focus();
+
+            filter_CheckYN = "N";
         }
 
         private void _tmrCheckAlarm_Callback(object state)
         {
-            //opentime과 비교하여 이후 들어오는 새로운 알람이 있는 경우 tlp_alarmlist에 추가
-            if (true)
+            if (nowalarmcnt < 100)
             {
-                CrossThreadSafeAlarmAdd("test");
+                try
+                {
+                    DataConnector con = new DataConnector();
+                    DataTable dt = con.mornitoring_AlarmList_R10("N");
+                    nowalarmcnt = dt.Rows.Count;
+
+                    while (nowalarmcnt == 100)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            CrossThreadSafeAlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+              
             }
+            filter_CheckYN = "N";
         }
 
         private void Popup_AlertHistory_FormClosed(object sender, FormClosedEventArgs e)
         {
-            parentdata.modalIsOpen = false;
+            switch (parentType)
+            {
+                case "DieMonitoring.uc_Alert":
+                    ((uc_Alert)parentdata).modalIsOpen = false;
+                    break;
+                case "DieMonitoring.uc_AlarmHistory":
+                    ((uc_AlarmHistory)parentdata).modalIsOpen = false;
+                    break;
+            }
         }
 
         private void Popup_AlertHistory_Load(object sender, EventArgs e)
         {
-            parentdata.modalIsOpen = true;
+            switch (parentType)
+            {
+                case "DieMonitoring.uc_Alert":
+                    ((uc_Alert)parentdata).modalIsOpen = true;
+                    break;
+                case "DieMonitoring.uc_AlarmHistory":
+                    ((uc_AlarmHistory)parentdata).modalIsOpen = true;
+                    break;
+            }
         }
         private void CheckAlarm(object sender, EventArgs e)
         {
@@ -87,9 +151,9 @@ namespace DieMonitoring
             tlp_alarmlist.RowStyles.RemoveAt(cellposi.Row);
         }
 
-        private void CrossThreadSafeAlarmAdd(string alarmstring)
+        private void CrossThreadSafeAlarmAdd(string seq,string alarmstring, string datetime)
         {
-            uc_AlarmHistoryNode data = new uc_AlarmHistoryNode(alarmstring + tlp_alarmlist.RowCount, DateTime.Now);
+            uc_AlarmHistoryNode data = new uc_AlarmHistoryNode(seq,alarmstring + tlp_alarmlist.RowCount, datetime);
             data.Name = "data" + tlp_alarmlist.RowCount;
             data.lbl_DeleteAlarm.Click += CheckAlarm;
             data.lbl_CheckAlarm.Click += CheckAlarm;
@@ -104,9 +168,9 @@ namespace DieMonitoring
 
         }
 
-        private void AlarmAdd(string alarmstring)
+        private void AlarmAdd(string seq, string alarmstring, string datetime)
         {
-            uc_AlarmHistoryNode data = new uc_AlarmHistoryNode(alarmstring,DateTime.Now);
+            uc_AlarmHistoryNode data = new uc_AlarmHistoryNode(seq,alarmstring, datetime);
             data.Name = "data" + tlp_alarmlist.RowCount;
             data.lbl_CheckAlarm.Click += CheckAlarm;
             data.lbl_DeleteAlarm.Click += CheckAlarm;
@@ -120,7 +184,7 @@ namespace DieMonitoring
 
         private void Popup_AlertHistory_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _tmr5SecondTimer.Change(Timeout.Infinite, Timeout.Infinite);
+            _tmr10SecondTimer.Change(Timeout.Infinite, Timeout.Infinite);
             Thread.Sleep(500);
         }
 
@@ -138,6 +202,7 @@ namespace DieMonitoring
                         ctl.ChangeUseYN();
                         DeleteControl(ctl);
                     }
+                    nowalarmcnt = 0;
                 }
                 catch (Exception)
                 {
@@ -157,6 +222,7 @@ namespace DieMonitoring
                     ctl.ChangeCheckYN();
                     DeleteControl(ctl);
                 }
+                nowalarmcnt = 0;
             }
             catch (Exception)
             {

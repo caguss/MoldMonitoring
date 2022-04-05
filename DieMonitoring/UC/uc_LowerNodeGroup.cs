@@ -51,10 +51,27 @@ namespace DieMonitoring
                     if (((uc_DieNode)item).NodeNumber == Nodenum)
                     {
                         ((uc_DieNode)item).ChangeValue(value);
+                        return;
                     }
                 }
             }
         }
+
+        public void ChangeNodeLimitValue(string Nodenum, string high_value, string low_value)
+        {
+            foreach (var item in tableLayoutPanel1.Controls)
+            {
+                if (item.GetType() == typeof(uc_DieNode))
+                {
+                    if (((uc_DieNode)item).NodeNumber == Nodenum)
+                    {
+                        ((uc_DieNode)item).SetLimit(high_value,low_value);
+                        return;
+                    }
+                }
+            }
+        }
+
         public void AlarmClear()
         {
             foreach (var item in tableLayoutPanel1.Controls)

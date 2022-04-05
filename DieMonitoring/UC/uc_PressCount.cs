@@ -22,34 +22,41 @@ namespace DieMonitoring
         }
 
         #endregion
-
-        private int TotalPressCnt = 10000;
-        private int TodayPressCnt = 10000;
+        
         public uc_PressCount()
         {
             InitializeComponent();
 
         }
 
-        public void PressCountUp()
-        {
-            TodayPressCnt++;
-            TotalPressCnt++;
-            lblTodayCnt.Text = TodayPressCnt.ToString("#,##0");
-            lblTotalCnt.Text = TotalPressCnt.ToString("#,##0");
-        }
 
         public void PressCntLoad(int TotalCnt, int TodayCnt)
         {
-            TotalPressCnt = TotalCnt;
-            TodayPressCnt = TodayCnt;
-            lblTodayCnt.Text = TodayPressCnt.ToString("#,##0");
-            lblTotalCnt.Text = TotalPressCnt.ToString("#,##0");
+            CSafeSetText(lblTodayCnt, TodayCnt.ToString("#,##0"));
+            CSafeSetText(lblTotalCnt, TotalCnt.ToString("#,##0"));
+        }
+        public void PressCntLoad(string TotalCnt, string TodayCnt)
+        {
+            CSafeSetText(lblTodayCnt, Convert.ToInt32(TodayCnt).ToString("#,##0"));
+            CSafeSetText(lblTotalCnt, Convert.ToInt32(TotalCnt).ToString("#,##0"));
+
         }
 
-        private void lblTodayCnt_Click(object sender, EventArgs e)
+
+        delegate void CrossThreadSafetySetText(Control ctl, string text);
+        private void CSafeSetText(Control ctl, string text)
         {
-            PressCountUp();
+            if (ctl.InvokeRequired)
+                ctl.Invoke(new CrossThreadSafetySetText(CSafeSetText), ctl, text);
+            else
+            {
+                if (ctl.Text != text)
+                {
+                    ctl.Text = text;
+                }
+            }
         }
+
+
     }
 }

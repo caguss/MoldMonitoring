@@ -44,7 +44,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.roundBorderPanel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.rbp_NodeNum, 0, 0);
@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(170, 50);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(162, 70);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // roundBorderPanel1
@@ -66,12 +66,12 @@
             this.roundBorderPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(48)))), ((int)(((byte)(49)))));
             this.roundBorderPanel1.IsBorder = true;
             this.roundBorderPanel1.IsFill = true;
-            this.roundBorderPanel1.Location = new System.Drawing.Point(31, 0);
+            this.roundBorderPanel1.Location = new System.Drawing.Point(35, 0);
             this.roundBorderPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.roundBorderPanel1.Name = "roundBorderPanel1";
             this.roundBorderPanel1.Radius = 10;
             this.roundBorderPanel1.RoundPadding = 2;
-            this.roundBorderPanel1.Size = new System.Drawing.Size(139, 50);
+            this.roundBorderPanel1.Size = new System.Drawing.Size(127, 70);
             this.roundBorderPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -87,7 +87,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(139, 50);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(127, 70);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // lblValue
@@ -98,21 +98,20 @@
             this.lblValue.Location = new System.Drawing.Point(0, 0);
             this.lblValue.Margin = new System.Windows.Forms.Padding(0);
             this.lblValue.Name = "lblValue";
-            this.lblValue.Size = new System.Drawing.Size(94, 50);
+            this.lblValue.Size = new System.Drawing.Size(82, 70);
             this.lblValue.TabIndex = 0;
             this.lblValue.Text = "110";
             this.lblValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblValue.Click += new System.EventHandler(this.Node_Click);
             // 
             // lbl_format
             // 
             this.lbl_format.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_format.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
             this.lbl_format.ForeColor = System.Drawing.Color.White;
-            this.lbl_format.Location = new System.Drawing.Point(94, 0);
+            this.lbl_format.Location = new System.Drawing.Point(82, 0);
             this.lbl_format.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_format.Name = "lbl_format";
-            this.lbl_format.Size = new System.Drawing.Size(45, 50);
+            this.lbl_format.Size = new System.Drawing.Size(45, 70);
             this.lbl_format.TabIndex = 1;
             this.lbl_format.Text = "℃";
             this.lbl_format.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,22 +131,22 @@
             this.rbp_NodeNum.Name = "rbp_NodeNum";
             this.rbp_NodeNum.Radius = 10;
             this.rbp_NodeNum.RoundPadding = 2;
-            this.rbp_NodeNum.Size = new System.Drawing.Size(31, 50);
+            this.rbp_NodeNum.Size = new System.Drawing.Size(35, 70);
             this.rbp_NodeNum.TabIndex = 2;
             // 
             // lblNodeNum
             // 
             this.lblNodeNum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNodeNum.Font = new System.Drawing.Font("맑은 고딕", 20F, System.Drawing.FontStyle.Bold);
+            this.lblNodeNum.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Bold);
             this.lblNodeNum.ForeColor = System.Drawing.Color.White;
             this.lblNodeNum.Location = new System.Drawing.Point(0, 0);
             this.lblNodeNum.Margin = new System.Windows.Forms.Padding(0);
             this.lblNodeNum.Name = "lblNodeNum";
-            this.lblNodeNum.Size = new System.Drawing.Size(31, 50);
+            this.lblNodeNum.Padding = new System.Windows.Forms.Padding(3, 0, 0, 5);
+            this.lblNodeNum.Size = new System.Drawing.Size(35, 70);
             this.lblNodeNum.TabIndex = 0;
             this.lblNodeNum.Text = "0";
-            this.lblNodeNum.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblNodeNum.Click += new System.EventHandler(this.Node_Click);
+            this.lblNodeNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uc_DieNode
             // 
@@ -158,7 +157,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "uc_DieNode";
-            this.Size = new System.Drawing.Size(170, 50);
+            this.Size = new System.Drawing.Size(162, 70);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.roundBorderPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

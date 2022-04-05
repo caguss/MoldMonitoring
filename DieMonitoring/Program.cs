@@ -42,17 +42,17 @@ namespace DieMonitoring
                     uid = xnl["uid"].InnerText;
                     pwd = xnl["pwd"].InnerText;
                 }
-
+             
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("네트워크 연결 설정 파일이 존재하지 않습니다. 관리자에게 문의바랍니다.");
             }
-     
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MonitoringForm());
+
         }
     }
 }
