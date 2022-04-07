@@ -42,7 +42,7 @@ namespace DieMonitoring
         string parentType = "";
         string filter_CheckYN = "N";
         int nowalarmcnt = 0;
-
+        bool isworking = false;
         DateTime opentime = DateTime.Now;
         System.Threading.Timer _tmr10SecondTimer = null;
 
@@ -55,13 +55,13 @@ namespace DieMonitoring
             lbl_FormName.Text = "알람이력";
 
             DataConnector con = new DataConnector();
-            DataTable dt = con.mornitoring_AlarmList_R10("A");
+            DataTable dt = con.monitoring_AlarmList_R10("A");
             nowalarmcnt = dt.Rows.Count;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 AlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
             }
-            tlp_ControlPanel.Focus();
+            lbl_CheckAll.Focus();
 
             filter_CheckYN = "A";
         }
@@ -76,41 +76,53 @@ namespace DieMonitoring
 
 
             DataConnector con = new DataConnector();
-            DataTable dt = con.mornitoring_AlarmList_R10("N");
+            DataTable dt = con.monitoring_AlarmList_R10("N");
             nowalarmcnt = dt.Rows.Count;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 AlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
             }
-            tlp_ControlPanel.Focus();
+            lbl_CheckAll.Focus();
 
             filter_CheckYN = "N";
         }
 
         private void _tmrCheckAlarm_Callback(object state)
         {
-            if (nowalarmcnt < 100)
+            if (!isworking)
             {
-                try
+                if (nowalarmcnt < 100)
                 {
-                    DataConnector con = new DataConnector();
-                    DataTable dt = con.mornitoring_AlarmList_R10("N");
-                    nowalarmcnt = dt.Rows.Count;
-
-                    while (nowalarmcnt == 100)
+                    try
                     {
-                        for (int i = 0; i < dt.Rows.Count; i++)
+                        DataConnector con = new DataConnector();
+                        DataTable dt = con.monitoring_AlarmList_R10("N");
+                        isworking = true;
+                        while (nowalarmcnt < 100)
                         {
-                            CrossThreadSafeAlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
+                            for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                CrossThreadSafeAlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
+                                nowalarmcnt++;
+                            }
                         }
+                        isworking = false;
+
                     }
+                    catch (Exception ex)
+                    {
+                        isworking = false;
+                    }
+
                 }
-                catch (Exception ex)
+                filter_CheckYN = "N";
+                lbl_CheckAll.Invoke((MethodInvoker)delegate ()
                 {
-                }
-              
+                    lbl_CheckAll.Focus();
+                });
+
             }
-            filter_CheckYN = "N";
+            
         }
 
         private void Popup_AlertHistory_FormClosed(object sender, FormClosedEventArgs e)
@@ -192,41 +204,53 @@ namespace DieMonitoring
         {
             if (MessageBox.Show("정말 삭제하시겠습니까? 삭제 이후 알람이 보여지지 않습니다.", "경고", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                isworking = true;
                 tlp_alarmlist.Refresh();
 
                 try
                 {
-                    while (tlp_alarmlist.RowCount == 1)
+                    int clearcnt = 0;
+                    while (clearcnt != nowalarmcnt)
                     {
                         var ctl = (uc_AlarmHistoryNode)tlp_alarmlist.GetControlFromPosition(0, 0);
                         ctl.ChangeUseYN();
                         DeleteControl(ctl);
+                        clearcnt++;
                     }
                     nowalarmcnt = 0;
                 }
                 catch (Exception)
                 {
+                    isworking = false;
+
                 }
+                isworking = false;
+
             }
         }
 
         private void lbl_CheckAll_Click(object sender, EventArgs e)
         {
             tlp_alarmlist.Refresh();
+            isworking = true;
 
             try
             {
-                while (tlp_alarmlist.RowCount == 1)
+                int clearcnt = 0;
+                while (clearcnt != nowalarmcnt)
                 {
                     var ctl = (uc_AlarmHistoryNode)tlp_alarmlist.GetControlFromPosition(0, 0);
                     ctl.ChangeCheckYN();
                     DeleteControl(ctl);
+                    clearcnt++;
                 }
                 nowalarmcnt = 0;
             }
             catch (Exception)
             {
+                isworking = false;
             }
+            isworking = false;
 
         }
     }

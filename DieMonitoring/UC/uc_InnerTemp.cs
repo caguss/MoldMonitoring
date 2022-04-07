@@ -61,26 +61,41 @@ namespace DieMonitoring
         public void ChangeData(bool IsTemp, decimal value)
         {
             if (IsTemp)
-            {
-                lbl_Temp.Text = value.ToString();
-
-            }
+                CSafeSetText(lbl_Temp, string.Format("{0:F1}", Convert.ToDouble(value.ToString())));
             else
-            {
-                lbl_Humid.Text = value.ToString();
-
-            }
+                CSafeSetText(lbl_Humid, string.Format("{0:F1}", Convert.ToDouble(value.ToString())));
+        }
+        public void ChangeData(bool IsTemp, string value)
+        {
+            if (IsTemp)
+                CSafeSetText(lbl_Temp, string.Format("{0:F1}", Convert.ToDouble(value.ToString())));
+            else
+                CSafeSetText(lbl_Humid, string.Format("{0:F1}", Convert.ToDouble(value.ToString())));
         }
         public void ChangeData(string Temp, string Humid)
         {
-            lbl_Temp.Text = Temp;
-            lbl_Humid.Text = Humid;
+                CSafeSetText(lbl_Temp, string.Format("{0:F1}", Convert.ToDouble(Temp.ToString())));
+                CSafeSetText(lbl_Humid, string.Format("{0:F1}", Convert.ToDouble(Humid.ToString())));
         }
 
         public void ChangeData(decimal Temp, decimal Humid)
         {
-            lbl_Temp.Text = Temp.ToString();
-            lbl_Humid.Text = Humid.ToString();
+            CSafeSetText(lbl_Temp, string.Format("{0:F1}", Convert.ToDouble(Temp.ToString())));
+            CSafeSetText(lbl_Humid, string.Format("{0:F1}", Convert.ToDouble(Humid.ToString())));
+        }
+
+        delegate void CrossThreadSafetySetText(Control ctl, String text);
+        private void CSafeSetText(Control ctl, String text)
+        {
+            if (ctl.InvokeRequired)
+                ctl.Invoke(new CrossThreadSafetySetText(CSafeSetText), ctl, text);
+            else
+            {
+                if (ctl.Text != text) // 입력된 텍스트가 기존 텍스트와 다를 경우만 변경 ( 깜빡임 문제 )
+                {
+                    ctl.Text = text;
+                }
+            }
         }
     }
 }

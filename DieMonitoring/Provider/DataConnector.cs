@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DieMonitoring
 {
@@ -19,7 +20,7 @@ namespace DieMonitoring
         /// </summary>
         /// <param name="checkYN"></param>
         /// <returns></returns>
-        public DataTable mornitoring_AlarmList_R10(string checkYN)
+        public DataTable monitoring_AlarmList_R10(string checkYN)
         {
             // errorcode 테이블도 조인해야함.
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
@@ -29,7 +30,7 @@ namespace DieMonitoring
                 {
                     MySqlCommand cmd = new MySqlCommand
                     {
-                        CommandText = "USP_mornitoring_AlarmList_R10",
+                        CommandText = "USP_monitoring_AlarmList_R10",
                         CommandType = CommandType.StoredProcedure,
                         Connection = conn
                     };
@@ -53,6 +54,7 @@ namespace DieMonitoring
                 }
                 catch (Exception ex)
                 {
+                MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                     return new DataTable();
                 }
             }
@@ -63,7 +65,7 @@ namespace DieMonitoring
         /// </summary>
         /// <param name="checkYN"></param>
         /// <returns></returns>
-        public void mornitoring_AlarmList_D10(string seq)
+        public void monitoring_AlarmList_D10(string seq)
         {
             // errorcode 테이블도 조인해야함.
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
@@ -73,7 +75,7 @@ namespace DieMonitoring
                 {
                     MySqlCommand cmd = new MySqlCommand
                     {
-                        CommandText = "USP_mornitoring_AlarmList_D10",
+                        CommandText = "USP_monitoring_AlarmList_D10",
                         CommandType = CommandType.StoredProcedure,
                         Connection = conn
                     };
@@ -84,16 +86,18 @@ namespace DieMonitoring
                 }
                 catch (Exception ex)
                 {
+                MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                 }
             }
         }
+
 
         /// <summary>
         /// 알람 체크 프로시져. checkYN만 변경
         /// </summary>
         /// <param name="seq"></param>
         /// <returns></returns>
-        public void mornitoring_AlarmList_U10(string seq)
+        public void monitoring_AlarmList_U10(string seq)
         {
             // errorcode 테이블도 조인해야함.
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
@@ -103,7 +107,7 @@ namespace DieMonitoring
                 {
                     MySqlCommand cmd = new MySqlCommand
                     {
-                        CommandText = "USP_mornitoring_AlarmList_U10",
+                        CommandText = "USP_monitoring_AlarmList_U10",
                         CommandType = CommandType.StoredProcedure,
                         Connection = conn
                     };
@@ -114,11 +118,12 @@ namespace DieMonitoring
                 }
                 catch (Exception ex)
                 {
+                MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                 }
             }
         }
         #endregion
-        #region 태그데이터
+        #region 센서관련
         /// <summary>
         /// MainMonitoring Form에서 현재 태그데이터 불러오기
         /// </summary>
@@ -137,6 +142,7 @@ namespace DieMonitoring
                         Connection = conn
                     };
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
                     DataSet ds = new DataSet();
                     da.Fill(ds);
                     return ds;
@@ -148,9 +154,43 @@ namespace DieMonitoring
                 }
             }
         }
-        #endregion
-        #region 그래프관련
-        public DataTable mornitoring_Graph_R10()
+        public DataTable monitoring_sensor_R20()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(StringConnection))
+                {
+                    conn.Open();
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand
+                        {
+                            CommandText = "USP_monitoring_sensor_R20",
+                            CommandType = CommandType.StoredProcedure,
+                            Connection = conn
+                        };
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        return ds.Tables[0];
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+
+                        return new DataTable();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+                        return new DataTable();
+            }
+
+        }
+        public DataTable monitoring_sensor_R30()
         {
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
             {
@@ -159,7 +199,36 @@ namespace DieMonitoring
                 {
                     MySqlCommand cmd = new MySqlCommand
                     {
-                        CommandText = "USP_mornitoring_Graph_R10",
+                        CommandText = "USP_monitoring_sensor_R30",
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn
+                    };
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    return ds.Tables[0];
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+
+                    return new DataTable();
+                }
+            }
+        }
+        #endregion
+        #region 그래프관련
+        public DataTable monitoring_Graph_R10()
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand
+                    {
+                        CommandText = "USP_monitoring_Graph_R10",
                         CommandType = CommandType.StoredProcedure,
                         Connection = conn
                     };
@@ -181,15 +250,62 @@ namespace DieMonitoring
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+
+                    return new DataTable();
+                }
+            }
+        }
+
+        public DataTable monitoring_summary_R10(string selectedgroup, string selectedsensor, string selectedtime)
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand
+                    {
+                        CommandText = "USP_monitoring_summary_R10",
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn
+                    };
+                    cmd.Parameters.Add(new MySqlParameter("@v_selectedgroup", MySqlDbType.VarChar));
+                    cmd.Parameters.Add(new MySqlParameter("@v_selectedsensor", MySqlDbType.VarChar));
+                    cmd.Parameters.Add(new MySqlParameter("@v_selectedtime", MySqlDbType.VarChar));
+                    cmd.Parameters["@v_selectedgroup"].Value = selectedgroup;
+                    cmd.Parameters["@v_selectedsensor"].Value = selectedsensor;
+                    cmd.Parameters["@v_selectedtime"].Value = selectedtime;
+
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+
+                    da.Fill(ds);
+                    da.Dispose();
+                    conn.Close();
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        return ds.Tables[0];
+                    }
+                    else
+                    {
+                        return new DataTable();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+
                     return new DataTable();
                 }
             }
         }
         #endregion
         #region 금형이름 관련
-        public Dictionary<string,string> mornitoring_MoldList_R10()
+        public Dictionary<string,string> monitoring_MoldList_R10()
         {
-            // errorcode 테이블도 조인해야함.
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
             {
                 Dictionary<string, string> result = new Dictionary<string, string>();
@@ -199,7 +315,7 @@ namespace DieMonitoring
                 {
                     MySqlCommand cmd = new MySqlCommand
                     {
-                        CommandText = "USP_mornitoring_MoldList_R10",
+                        CommandText = "USP_monitoring_MoldList_R10",
                         CommandType = CommandType.StoredProcedure,
                         Connection = conn
                     };
@@ -228,6 +344,32 @@ namespace DieMonitoring
                 {
                     result.Add("exerr",ex.Message);
                     return result;
+                }
+            }
+        }
+
+
+        public void monitoring_MoldList_U10(string selectedMoldCode)
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand
+                    {
+                        CommandText = "USP_monitoring_MoldList_U10",
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn
+                    };
+                    cmd.Parameters.Add(new MySqlParameter("@v_moldcode", MySqlDbType.VarChar, 10));
+                    cmd.Parameters["@v_moldcode"].Value = selectedMoldCode;
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                 }
             }
         }

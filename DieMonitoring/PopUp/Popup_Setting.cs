@@ -48,7 +48,7 @@ namespace DieMonitoring
             try
             {
                 DataConnector con = new DataConnector();
-                sensor_mst = con.mornitoring_Graph_R10();
+                sensor_mst = con.monitoring_Graph_R10();
                 for (int i = 0; i < sensor_mst.Rows.Count; i++)
                 {
                     cb_SensorList.Items.Add($"{sensor_mst.Rows[i]["gr"].ToString()}-{sensor_mst.Rows[i]["rsc"].ToString()}");

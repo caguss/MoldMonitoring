@@ -54,33 +54,47 @@ namespace DieMonitoring
             //lbl_TempText.Font = Program.Normalfont;
         }
         /// <summary>
-        /// 하나만 지정해서 보낼 경우. bool 타입은 True는 온도, False는 습도
+        /// 하나만 지정해서 보낼 경우. bool 타입은 True는 냉각수온도, False는 유량
         /// </summary>
         /// <param name="IsTemp">True is Temp, False is Humid</param>
         /// <param name="value">just decimal</param>
         public void ChangeData(bool IsTemp, decimal value)
         {
             if (IsTemp)
-            {
-                lbl_Temp.Text = value.ToString()+ "℃";
-
-            }
+                CSafeSetText(lbl_Temp, ((int)Convert.ToDouble(value)).ToString());
             else
-            {
-                lbl_bar.Text = value.ToString() + "bar";
-
-            }
+                CSafeSetText(lbl_bar, ((int)Convert.ToDouble(value)).ToString());
+        }
+        public void ChangeData(bool IsTemp, string value)
+        {
+            if (IsTemp)
+                CSafeSetText(lbl_Temp, ((int)Convert.ToDouble(value)).ToString());
+            else
+                CSafeSetText(lbl_bar, ((int)Convert.ToDouble(value)).ToString());
         }
         public void ChangeData(string Temp, string bar)
         {
-            lbl_Temp.Text = Temp + "℃";
-            lbl_bar.Text = bar + "bar";
+            CSafeSetText(lbl_Temp, ((int)Convert.ToDouble(Temp)).ToString());
+            CSafeSetText(lbl_bar, ((int)Convert.ToDouble(bar)).ToString());
         }
 
         public void ChangeData(decimal Temp, decimal bar)
         {
-            lbl_Temp.Text = Temp.ToString() + "℃";
-            lbl_bar.Text = bar.ToString() + "bar";
+            CSafeSetText(lbl_Temp, ((int)Convert.ToDouble(Temp)).ToString());
+            CSafeSetText(lbl_bar, ((int)Convert.ToDouble(bar)).ToString());
+        }
+        delegate void CrossThreadSafetySetText(Control ctl, String text);
+        private void CSafeSetText(Control ctl, String text)
+        {
+            if (ctl.InvokeRequired)
+                ctl.Invoke(new CrossThreadSafetySetText(CSafeSetText), ctl, text);
+            else
+            {
+                if (ctl.Text != text) // 입력된 텍스트가 기존 텍스트와 다를 경우만 변경 ( 깜빡임 문제 )
+                {
+                    ctl.Text = text;
+                }
+            }
         }
     }
 }

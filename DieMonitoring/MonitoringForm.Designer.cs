@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitoringForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this._chartMstView = new DevExpress.XtraCharts.ChartControl();
             this.uc_AlarmHistory1 = new DieMonitoring.uc_AlarmHistory();
             this.uc_Alert1 = new DieMonitoring.uc_Alert();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -63,7 +63,7 @@
             this.uc_OptionButton1 = new DieMonitoring.uc_OptionButton();
             this.uc_GraphOption1 = new DieMonitoring.uc_GraphOption();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._chartMstView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.roundBorderPanel4.SuspendLayout();
             this.roundBorderPanel5.SuspendLayout();
@@ -82,7 +82,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel1.Controls.Add(this.chartControl1, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this._chartMstView, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.uc_AlarmHistory1, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.uc_Alert1, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
@@ -104,18 +104,19 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1904, 1041);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
-            // chartControl1
+            // _chartMstView
             // 
-            this.chartControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.chartControl1, 3);
-            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Location = new System.Drawing.Point(1408, 153);
-            this.chartControl1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.chartControl1.Name = "chartControl1";
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.Size = new System.Drawing.Size(496, 504);
-            this.chartControl1.TabIndex = 20;
+            this._chartMstView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.tableLayoutPanel1.SetColumnSpan(this._chartMstView, 3);
+            this._chartMstView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._chartMstView.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBox;
+            this._chartMstView.Legend.Name = "Default Legend";
+            this._chartMstView.Location = new System.Drawing.Point(1408, 153);
+            this._chartMstView.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this._chartMstView.Name = "_chartMstView";
+            this._chartMstView.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this._chartMstView.Size = new System.Drawing.Size(496, 504);
+            this._chartMstView.TabIndex = 20;
             // 
             // uc_AlarmHistory1
             // 
@@ -506,8 +507,6 @@
             this.uc_GraphOption1.Location = new System.Drawing.Point(1408, 657);
             this.uc_GraphOption1.Margin = new System.Windows.Forms.Padding(0);
             this.uc_GraphOption1.Name = "uc_GraphOption1";
-            this.uc_GraphOption1.Selectedsensor = null;
-            this.uc_GraphOption1.SelectedTime = null;
             this.uc_GraphOption1.Size = new System.Drawing.Size(496, 70);
             this.uc_GraphOption1.TabIndex = 34;
             // 
@@ -525,7 +524,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MonitoringForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._chartMstView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.roundBorderPanel4.ResumeLayout(false);
             this.roundBorderPanel5.ResumeLayout(false);
@@ -540,7 +539,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
+        public DevExpress.XtraCharts.ChartControl _chartMstView;
         private uc_AlarmHistory uc_AlarmHistory1;
         private uc_Alert uc_Alert1;
         private uc_ProgramTimer uc_ProgramTimer1;
@@ -570,8 +569,8 @@
         private System.Windows.Forms.Label lblfront;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblback;
-        private RoundBorderPanel roundBorderPanel1;
         private uc_GraphOption uc_GraphOption1;
+        private RoundBorderPanel roundBorderPanel1;
     }
 }
 

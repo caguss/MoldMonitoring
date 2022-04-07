@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -38,28 +39,22 @@ namespace DieMonitoring
         public uc_ProgramTimer()
         {
             InitializeComponent();
-            //foreach (var item in tableLayoutPanel1.Controls)
-            //{
-            //    if (item.GetType() == typeof(Label))
-            //    {
-            //        ((Label)item).Font = Program.DescriptionFont;
-
-            //    }
-            //}
-            //lblDate.Font = Program.Normalfont;
-            //lblTime.Font = Program.TitleFont;
-            //lbl_Title.Font = Program.TitleFont;
             _tmrMinuteTimer = new System.Threading.Timer(_tmrNowTime_Callback, null,0, 60000);
         }
 
 
-        delegate void CrossThreadSafetySetText(Control ctl, String text);
         private void _tmrNowTime_Callback(object state)
         {
             CSafeSetText(lblDate, DateTime.Now.ToString("yyyy. MM. dd"));
             CSafeSetText(lblTime, DateTime.Now.ToString("tt hh:mm:ss"));
 
-            //온습도 procedure 추가
+            DataConnector con = new DataConnector();
+            DataTable dt = con.monitoring_sensor_R20();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                uc_InnerTemp1.ChangeData((dt.Rows[i]["rsc"].ToString() == "12") ? true : false,dt.Rows[i]["vl"].ToString());
+            }
         }
 
 
@@ -70,7 +65,7 @@ namespace DieMonitoring
             Application.Exit();
         }
 
-
+        delegate void CrossThreadSafetySetText(Control ctl, String text);
         private void CSafeSetText(Control ctl, String text)
         {
             if (ctl.InvokeRequired)

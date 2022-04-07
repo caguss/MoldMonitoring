@@ -95,7 +95,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 50);
             this.label2.TabIndex = 2;
-            this.label2.Text = "표시 시간";
+            this.label2.Text = "차트 옵션";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cb_SensorOption

@@ -75,14 +75,14 @@ namespace DieMonitoring
         {
             //DB CheckYN 변경
             DataConnector con = new DataConnector();
-            con.mornitoring_AlarmList_U10(logseq);
+            con.monitoring_AlarmList_U10(logseq);
         }
 
         public void ChangeUseYN()
         {
             //DB UseYN 변경
             DataConnector con = new DataConnector();
-            con.mornitoring_AlarmList_D10(logseq);
+            con.monitoring_AlarmList_D10(logseq);
         }
     }
 }
