@@ -10,7 +10,7 @@
         /// <summary>
         /// 사용 중인 모든 리소스를 정리합니다.
         /// </summary>
-        /// <param name="disposing">관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
+        /// <param name = "disposing" > 관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -96,7 +96,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 507F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 550F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 137F));
@@ -109,13 +109,15 @@
             this._chartMstView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.tableLayoutPanel1.SetColumnSpan(this._chartMstView, 3);
             this._chartMstView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._chartMstView.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.BottomOutside;
             this._chartMstView.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBox;
             this._chartMstView.Legend.Name = "Default Legend";
             this._chartMstView.Location = new System.Drawing.Point(1408, 153);
             this._chartMstView.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this._chartMstView.Name = "_chartMstView";
+            this._chartMstView.PaletteName = "Slipstream";
             this._chartMstView.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this._chartMstView.Size = new System.Drawing.Size(496, 504);
+            this._chartMstView.Size = new System.Drawing.Size(496, 547);
             this._chartMstView.TabIndex = 20;
             // 
             // uc_AlarmHistory1
@@ -504,7 +506,7 @@
             this.uc_GraphOption1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.SetColumnSpan(this.uc_GraphOption1, 3);
             this.uc_GraphOption1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc_GraphOption1.Location = new System.Drawing.Point(1408, 657);
+            this.uc_GraphOption1.Location = new System.Drawing.Point(1408, 700);
             this.uc_GraphOption1.Margin = new System.Windows.Forms.Padding(0);
             this.uc_GraphOption1.Name = "uc_GraphOption1";
             this.uc_GraphOption1.Size = new System.Drawing.Size(496, 70);

@@ -54,7 +54,7 @@ namespace DieMonitoring
                 }
                 catch (Exception ex)
                 {
-                MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                     return new DataTable();
                 }
             }
@@ -86,7 +86,7 @@ namespace DieMonitoring
                 }
                 catch (Exception ex)
                 {
-                MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                 }
             }
         }
@@ -118,7 +118,7 @@ namespace DieMonitoring
                 }
                 catch (Exception ex)
                 {
-                MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                 }
             }
         }
@@ -128,7 +128,7 @@ namespace DieMonitoring
         /// MainMonitoring Form에서 현재 태그데이터 불러오기
         /// </summary>
         /// <returns></returns>
-        public DataSet monitoring_sensor_R10()
+        public DataSet monitoring_sensor_R10(int maxcnt)
         {
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
             {
@@ -140,7 +140,11 @@ namespace DieMonitoring
                         CommandText = "USP_monitoring_sensor_R10",
                         CommandType = CommandType.StoredProcedure,
                         Connection = conn
+
                     };
+
+                    cmd.Parameters.Add(new MySqlParameter("@v_conncnt", MySqlDbType.Int32));
+                    cmd.Parameters["@v_conncnt"].Value = maxcnt;
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
                     DataSet ds = new DataSet();
@@ -186,7 +190,7 @@ namespace DieMonitoring
             catch (Exception ex)
             {
                 MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
-                        return new DataTable();
+                return new DataTable();
             }
 
         }
@@ -257,7 +261,7 @@ namespace DieMonitoring
             }
         }
 
-        public DataTable monitoring_summary_R10(string selectedgroup, string selectedsensor, string selectedtime)
+        public DataTable monitoring_summary_R10(string selectedgroup, string selectedsensor, int selectedtime)
         {
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
             {
@@ -272,7 +276,7 @@ namespace DieMonitoring
                     };
                     cmd.Parameters.Add(new MySqlParameter("@v_selectedgroup", MySqlDbType.VarChar));
                     cmd.Parameters.Add(new MySqlParameter("@v_selectedsensor", MySqlDbType.VarChar));
-                    cmd.Parameters.Add(new MySqlParameter("@v_selectedtime", MySqlDbType.VarChar));
+                    cmd.Parameters.Add(new MySqlParameter("@v_selectedtime", MySqlDbType.Int32));
                     cmd.Parameters["@v_selectedgroup"].Value = selectedgroup;
                     cmd.Parameters["@v_selectedsensor"].Value = selectedsensor;
                     cmd.Parameters["@v_selectedtime"].Value = selectedtime;
@@ -302,9 +306,51 @@ namespace DieMonitoring
                 }
             }
         }
+
+        public DataTable monitoring_summary_R20(int selectedtime)
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand
+                    {
+                        CommandText = "USP_monitoring_summary_R20",
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn
+                    };
+                    cmd.Parameters.Add(new MySqlParameter("@v_selectedtime", MySqlDbType.Int32));
+                    cmd.Parameters["@v_selectedtime"].Value = selectedtime;
+
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+
+                    da.Fill(ds);
+                    da.Dispose();
+                    conn.Close();
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        return ds.Tables[0];
+                    }
+                    else
+                    {
+                        return new DataTable();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+
+                    return new DataTable();
+                }
+            }
+        }
         #endregion
         #region 금형이름 관련
-        public Dictionary<string,string> monitoring_MoldList_R10()
+        public Dictionary<string, string> monitoring_MoldList_R10()
         {
             using (MySqlConnection conn = new MySqlConnection(StringConnection))
             {
@@ -336,13 +382,13 @@ namespace DieMonitoring
                     }
                     else
                     {
-                        result.Add("knowingerr","오류! 금형이름이 등록되어 있지 않습니다.");
+                        result.Add("knowingerr", "오류! 금형이름이 등록되어 있지 않습니다.");
                         return result;
                     }
                 }
                 catch (Exception ex)
                 {
-                    result.Add("exerr",ex.Message);
+                    result.Add("exerr", ex.Message);
                     return result;
                 }
             }
@@ -371,6 +417,123 @@ namespace DieMonitoring
                 {
                     MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
                 }
+            }
+        }
+        #endregion
+        #region 옵션 관련
+        public DataSet monitoring_Setting_R10()
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand
+                    {
+                        CommandText = "USP_monitoring_Setting_R10",
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn
+                    };
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+
+                    da.Fill(ds);
+                    da.Dispose();
+                    conn.Close();
+
+                    return ds;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+
+                    return new DataSet();
+                }
+            }
+        }
+        public DataTable monitoring_Setting_R20(string gr, string rsc)
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand
+                    {
+                        CommandText = "USP_monitoring_Setting_R20",
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn
+                    };
+                    cmd.Parameters.Add(new MySqlParameter("@v_gr", MySqlDbType.VarChar, 50));
+                    cmd.Parameters.Add(new MySqlParameter("@v_rsc", MySqlDbType.VarChar, 50));
+                    cmd.Parameters["@v_gr"].Value = gr;
+                    cmd.Parameters["@v_rsc"].Value = rsc;
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+
+                    da.Fill(ds);
+                    da.Dispose();
+                    conn.Close();
+                    return ds.Tables[0];
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+                    return new DataTable();
+
+                }
+            }
+        }
+        public void monitoring_Setting_U10(string gr, string limit_high, string limit_low)
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand
+                {
+                    CommandText = "USP_monitoring_Setting_U10",
+                    CommandType = CommandType.StoredProcedure,
+                    Connection = conn
+                };
+                cmd.Parameters.Add(new MySqlParameter("@v_gr", MySqlDbType.VarChar, 50));
+                cmd.Parameters.Add(new MySqlParameter("@v_limit_high", MySqlDbType.Decimal));
+                cmd.Parameters.Add(new MySqlParameter("@v_limit_low", MySqlDbType.Decimal));
+                cmd.Parameters["@v_gr"].Value = gr;
+                cmd.Parameters["@v_limit_high"].Value = limit_high;
+                cmd.Parameters["@v_limit_low"].Value = limit_low;
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+            }
+        }
+
+        public void monitoring_Setting_U20(string gr,string rsc, string limit_high, string limit_low)
+        {
+            using (MySqlConnection conn = new MySqlConnection(StringConnection))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand
+                {
+                    CommandText = "USP_monitoring_Setting_U10",
+                    CommandType = CommandType.StoredProcedure,
+                    Connection = conn
+                };
+                cmd.Parameters.Add(new MySqlParameter("@v_gr", MySqlDbType.VarChar, 50));
+                cmd.Parameters.Add(new MySqlParameter("@v_rsc", MySqlDbType.VarChar, 50));
+                cmd.Parameters.Add(new MySqlParameter("@v_limit_high", MySqlDbType.Decimal));
+                cmd.Parameters.Add(new MySqlParameter("@v_limit_low", MySqlDbType.Decimal));
+                cmd.Parameters["@v_gr"].Value = gr;
+                cmd.Parameters["@v_rsc"].Value = rsc;
+                cmd.Parameters["@v_limit_high"].Value = limit_high;
+                cmd.Parameters["@v_limit_low"].Value = limit_low;
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
             }
         }
         #endregion

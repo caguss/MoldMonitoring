@@ -54,7 +54,7 @@
             this.tlp_alarmlist.Name = "tlp_alarmlist";
             this.tlp_alarmlist.RowCount = 1;
             this.tlp_alarmlist.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_alarmlist.Size = new System.Drawing.Size(700, 0);
+            this.tlp_alarmlist.Size = new System.Drawing.Size(1000, 0);
             this.tlp_alarmlist.TabIndex = 1;
             // 
             // panel1
@@ -65,7 +65,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 575);
+            this.panel1.Size = new System.Drawing.Size(1000, 575);
             this.panel1.TabIndex = 2;
             // 
             // tlp_ControlPanel
@@ -82,7 +82,7 @@
             this.tlp_ControlPanel.Name = "tlp_ControlPanel";
             this.tlp_ControlPanel.RowCount = 1;
             this.tlp_ControlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlp_ControlPanel.Size = new System.Drawing.Size(700, 64);
+            this.tlp_ControlPanel.Size = new System.Drawing.Size(1000, 64);
             this.tlp_ControlPanel.TabIndex = 2;
             // 
             // panel2
@@ -91,7 +91,7 @@
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.lbl_CheckAll);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(153, 3);
+            this.panel2.Location = new System.Drawing.Point(303, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(194, 58);
             this.panel2.TabIndex = 0;
@@ -116,7 +116,7 @@
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.lbl_DeleteAll);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(353, 3);
+            this.panel3.Location = new System.Drawing.Point(503, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(194, 58);
             this.panel3.TabIndex = 1;
@@ -139,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 600);
+            this.ClientSize = new System.Drawing.Size(1000, 600);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

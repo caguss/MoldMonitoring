@@ -47,13 +47,20 @@ namespace DieMonitoring
         {
             CSafeSetText(lblDate, DateTime.Now.ToString("yyyy. MM. dd"));
             CSafeSetText(lblTime, DateTime.Now.ToString("tt hh:mm:ss"));
-
-            DataConnector con = new DataConnector();
-            DataTable dt = con.monitoring_sensor_R20();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
-                uc_InnerTemp1.ChangeData((dt.Rows[i]["rsc"].ToString() == "12") ? true : false,dt.Rows[i]["vl"].ToString());
+
+                DataConnector con = new DataConnector();
+                DataTable dt = con.monitoring_sensor_R20();
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    uc_InnerTemp1.ChangeData((dt.Rows[i]["rsc"].ToString() == "12") ? true : false, dt.Rows[i]["vl"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
 

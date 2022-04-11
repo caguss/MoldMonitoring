@@ -44,8 +44,6 @@ namespace DieMonitoring
         #endregion
 
         System.Threading.Timer _tmrSecondTimer = null;
-        public int frontsecondcnt = 0; // 안들어온 초를 세기위한 함수 --DB상 센서카운트 14개가 안된다면 cnt 올림?? 구상 필요
-        public int backsecondcnt = 0; // 안들어온 초를 세기위한 함수 --DB상 센서카운트 14개가 안된다면 cnt 올림?? 구상 필요
 
 
         public int maxcnt = 10; // secondcnt와의 비교하기 위한 함수. 해당 함수의 수만큼 데이터가 들어오지 않을경우 빨간색 점멸
@@ -101,59 +99,17 @@ namespace DieMonitoring
         }
         private void _tmrConnection_Callback(object state)
         {
-            #region connection 끊김시 전면 후면 깜빡임
-            //센서별 끊긴 센서의 최대치 불러오는 코드 필요
-            if (frontsecondcnt >= maxcnt)
-            {
-                if (!frontisRed)
-                {
-
-                    lblfront.Invoke((MethodInvoker)delegate ()
-                    {
-                        lblfront.ForeColor = Color.Red;
-                    });
-                    frontisRed = true;
-                }
-                else
-                {
-                    lblfront.Invoke((MethodInvoker)delegate ()
-                    {
-                        lblfront.ForeColor = Color.White;
-                    });
-                    frontisRed = false;
-                }
-            }
-            if (backsecondcnt >= maxcnt)
-            {
-                if (!backisRed)
-                {
-                    lblback.Invoke((MethodInvoker)delegate ()
-                    {
-                        lblback.ForeColor = Color.Red;
-                    });
-                    backisRed = true;
-                }
-                else
-                {
-                    lblback.Invoke((MethodInvoker)delegate ()
-                    {
-                        lblback.ForeColor = Color.White;
-                    });
-                    backisRed = false;
-                }
-            }
-            frontsecondcnt++;
-            backsecondcnt++;
-            #endregion
+        
             try
             {
                 DataConnector con = new DataConnector();
-                DataSet ds = con.monitoring_sensor_R10();
+                DataSet ds = con.monitoring_sensor_R10(maxcnt);
                 //ds.Tables[0] : 태그별 온도 센서
                 //ds.Tables[1] : IN/OUT 유량
                 //ds.Tables[2] : 알람 건수
                 //ds.Tables[3] : 타공수
                 //ds.Tables[4] : PLC 데이터
+                //ds.Tables[5] : sensor connection error count
 
                 #region 온도 데이터 Load
 
@@ -179,7 +135,6 @@ namespace DieMonitoring
                 }
 
                 #endregion
-
                 #region 유량, 냉각수 Load
                 for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
                 {
@@ -228,6 +183,63 @@ namespace DieMonitoring
                 }
 
                 #endregion
+                #region Connection Count
+                if (Convert.ToInt32(ds.Tables[5].Rows[0]["fronterrcnt"].ToString()) > 0)
+                {
+                    if (!frontisRed)
+                    {
+
+                        lblfront.Invoke((MethodInvoker)delegate ()
+                        {
+                            lblfront.ForeColor = Color.Red;
+                        });
+                        frontisRed = true;
+                    }
+                    else
+                    {
+                        lblfront.Invoke((MethodInvoker)delegate ()
+                        {
+                            lblfront.ForeColor = Color.White;
+                        });
+                        frontisRed = false;
+                    }
+                }
+                else
+                {
+                    lblfront.Invoke((MethodInvoker)delegate ()
+                    {
+                        lblfront.ForeColor = Color.White;
+                    });
+                    frontisRed = false;
+                }
+                if (Convert.ToInt32(ds.Tables[5].Rows[0]["backerrcnt"].ToString()) > 0)
+                {
+                    if (!backisRed)
+                    {
+                        lblback.Invoke((MethodInvoker)delegate ()
+                        {
+                            lblback.ForeColor = Color.Red;
+                        });
+                        backisRed = true;
+                    }
+                    else
+                    {
+                        lblback.Invoke((MethodInvoker)delegate ()
+                        {
+                            lblback.ForeColor = Color.White;
+                        });
+                        backisRed = false;
+                    }
+                }
+                else
+                {
+                    lblback.Invoke((MethodInvoker)delegate ()
+                    {
+                        lblback.ForeColor = Color.White;
+                    });
+                    backisRed = false;
+                }
+                #endregion
             }
             catch (Exception ex)
             {
@@ -249,7 +261,6 @@ namespace DieMonitoring
             frontisRed = false;
             NodeGroup_FrontUpper.AlarmClear();
             NodeGroup_FrontLower.AlarmClear();
-            frontsecondcnt = 0;
         }
 
         private void lblback_Click(object sender, EventArgs e)
@@ -266,7 +277,6 @@ namespace DieMonitoring
             backisRed = false;
             NodeGroup_BackUpper.AlarmClear();
             NodeGroup_BackLower.AlarmClear();
-            backsecondcnt = 0;
         }
 
         private void lbl_MoldName_Click(object sender, EventArgs e)

@@ -63,7 +63,7 @@
             // lbl_AlarmString
             // 
             this.lbl_AlarmString.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_AlarmString.Font = new System.Drawing.Font("맑은 고딕", 14F);
+            this.lbl_AlarmString.Font = new System.Drawing.Font("맑은 고딕", 12F);
             this.lbl_AlarmString.ForeColor = System.Drawing.Color.White;
             this.lbl_AlarmString.Location = new System.Drawing.Point(3, 0);
             this.lbl_AlarmString.Name = "lbl_AlarmString";
@@ -125,7 +125,7 @@
             // lbl_OccurTime
             // 
             this.lbl_OccurTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_OccurTime.Font = new System.Drawing.Font("맑은 고딕", 14F);
+            this.lbl_OccurTime.Font = new System.Drawing.Font("맑은 고딕", 12F);
             this.lbl_OccurTime.ForeColor = System.Drawing.Color.White;
             this.lbl_OccurTime.Location = new System.Drawing.Point(500, 0);
             this.lbl_OccurTime.Margin = new System.Windows.Forms.Padding(0);

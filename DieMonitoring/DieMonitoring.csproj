@@ -148,6 +148,12 @@
     <Compile Include="UC\CustomData\CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UC\CustomData\CustomTextbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\CustomData\CustomTextbox.Designer.cs">
+      <DependentUpon>CustomTextbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\uc_OptionButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC\CustomData\CustomComboBox.resx">
       <DependentUpon>CustomComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\CustomData\CustomTextbox.resx">
+      <DependentUpon>CustomTextbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\uc_OptionButton.resx">
       <DependentUpon>uc_OptionButton.cs</DependentUpon>

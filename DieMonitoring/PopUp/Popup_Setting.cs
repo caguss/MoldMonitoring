@@ -44,14 +44,20 @@ namespace DieMonitoring
             parentdata = parent;
             lbl_FormName.Text = "옵션설정";
 
-            DataTable sensor_mst;
             try
             {
                 DataConnector con = new DataConnector();
-                sensor_mst = con.monitoring_Graph_R10();
-                for (int i = 0; i < sensor_mst.Rows.Count; i++)
+                DataSet ds = con.monitoring_Setting_R10();
+                //ds[0] : 그룹별 이름
+                //ds[1] : 센서별 이름
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    cb_SensorList.Items.Add($"{sensor_mst.Rows[i]["gr"].ToString()}-{sensor_mst.Rows[i]["rsc"].ToString()}");
+                    lb_GroupList.Items.Add($"{ds.Tables[0].Rows[i]["gr"].ToString()}");
+                }
+                for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                {
+                    lb_SensorList.Items.Add($"{ds.Tables[1].Rows[i]["gr"].ToString()}-{ds.Tables[1].Rows[i]["rsc"].ToString()}");
                 }
             }
             catch (Exception)
@@ -71,6 +77,57 @@ namespace DieMonitoring
         private void Popup_Setting_Load(object sender, EventArgs e)
         {
             parentdata.modalIsOpen = true;
+        }
+
+        private void lb_GroupList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txt_selectedGroup.Texts = lb_GroupList.SelectedItem.ToString();
+        }
+
+        private void lb_SensorList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txt_selectedSensor.Texts = lb_SensorList.SelectedItem.ToString();
+            DataConnector con = new DataConnector();
+            DataTable dt = con.monitoring_Setting_R20(txt_selectedSensor.Texts.Split('-')[0], txt_selectedSensor.Texts.Split('-')[1]);
+            if (dt.Rows.Count > 0)
+            {
+                txt_sensor_High.Texts = dt.Rows[0]["limit_high"].ToString();
+                txt_sensor_Low.Texts = dt.Rows[0]["limit_low"].ToString();
+            }
+        }
+
+        private void lbl_groupSave_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("경고", "그룹별 센서 상하한치를 저장하시겠습니까? 그룹 내 전체의 센서의 상하한치가 변경됩니다.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DataConnector con = new DataConnector();
+                try
+                {
+                    con.monitoring_Setting_U10(txt_selectedGroup.Texts, txt_group_High.Texts, txt_group_Low.Texts);
+                    MessageBox.Show("저장이 완료되었습니다.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+                }
+            }
+        }
+
+        private void lbl_sensorSave_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("경고", "센서별 센서 상하한치를 저장하시겠습니까?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DataConnector con = new DataConnector();
+                try
+                {
+                    con.monitoring_Setting_U20(txt_selectedSensor.Texts.Split('-')[0], txt_selectedSensor.Texts.Split('-')[1], txt_group_High.Texts, txt_group_Low.Texts);
+                    MessageBox.Show("저장이 완료되었습니다.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"에러가 발생했습니다. 관리자에게 문의해 주세요. {ex.Message}");
+                }
+            }
         }
     }
 }

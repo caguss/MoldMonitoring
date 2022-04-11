@@ -57,15 +57,16 @@ namespace DieMonitoring
             DataConnector con = new DataConnector();
             DataTable dt = con.monitoring_AlarmList_R10("A");
             nowalarmcnt = dt.Rows.Count;
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < nowalarmcnt; i++)
             {
-                AlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
+                string errstr = ErrorStringMaker(dt.Rows[i]["alarmCode"].ToString(), dt.Rows[i]["gr"].ToString(), dt.Rows[i]["rsc"].ToString());
+
+                AlarmAdd(dt.Rows[i]["seq"].ToString(), errstr, dt.Rows[i]["alarm_date"].ToString());
             }
-            lbl_CheckAll.Focus();
+            tlp_ControlPanel.Focus();
 
             filter_CheckYN = "A";
         }
-
         public Popup_AlertHistory(uc_Alert parent)
         {
             InitializeComponent();
@@ -78,14 +79,85 @@ namespace DieMonitoring
             DataConnector con = new DataConnector();
             DataTable dt = con.monitoring_AlarmList_R10("N");
             nowalarmcnt = dt.Rows.Count;
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < nowalarmcnt; i++)
             {
-                AlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
+                string errstr = ErrorStringMaker(dt.Rows[i]["alarmCode"].ToString(), dt.Rows[i]["gr"].ToString(), dt.Rows[i]["rsc"].ToString());
+
+                AlarmAdd(dt.Rows[i]["seq"].ToString(), errstr, dt.Rows[i]["alarm_date"].ToString());
             }
-            lbl_CheckAll.Focus();
+            tlp_ControlPanel.Focus();
 
             filter_CheckYN = "N";
         }
+        private static string ErrorStringMaker(string alarmcode,string gr, string rsc)
+        {
+            string errstr = "";
+            if (alarmcode == "")
+            {
+                errstr = $"에러코드가 존재하지 않습니다.";
+
+            }
+            else
+            {
+                string errcode = alarmcode.Substring(2);
+                string sensorType = errcode.Substring(0, 2);
+                string errorType = errcode.Substring(2);
+                string errstrsenType = "";
+                string errstrerrtype = "";
+                switch (sensorType)
+                {
+                    case "01":
+                        errstrsenType = "온도";
+                        break;
+                    case "02":
+                        errstrsenType = "외부";
+                        break;
+                    case "04":
+                        errstrsenType = "유량";
+                        break;
+                    case "08":
+                        errstrsenType = "냉각수";
+                        break;
+                    case "10":
+                        errstrsenType = "냉각수";
+                        break;
+                    case "11":
+                        errstrsenType = "냉각수";
+                        break;
+                    case "12":
+                        errstrsenType = "외부 온도";
+                        break;
+                    case "13":
+                        errstrsenType = "외부 습도";
+                        break;
+                    case "14":
+                        errstrsenType = "작동유 온도";
+                        break;
+                    case "15":
+                        errstrsenType = "작동유 유압";
+                        break;
+                    default:
+                        break;
+                }
+                switch (errorType)
+                {
+                    case "01":
+                        errstrerrtype = "상한치";
+                        break;
+                    case "02":
+                        errstrerrtype = "하한치";
+                        break;
+                    default:
+                        break;
+                }
+
+                errstr = $"{errstrsenType} 센서 {gr}-{rsc}에서 {errstrerrtype} 이상이 발생하였습니다.";
+            }
+
+            return errstr;
+        }
+
+      
 
         private void _tmrCheckAlarm_Callback(object state)
         {
@@ -100,7 +172,7 @@ namespace DieMonitoring
                         isworking = true;
                         while (nowalarmcnt < 100)
                         {
-                            for (int i = 0; i < dt.Rows.Count; i++)
+                            for (int i = 0; i < nowalarmcnt; i++)
                             {
                                 CrossThreadSafeAlarmAdd(dt.Rows[i]["seq"].ToString(), dt.Rows[i]["seq"].ToString(), dt.Rows[i]["alarm_date"].ToString());
                                 nowalarmcnt++;
@@ -111,22 +183,23 @@ namespace DieMonitoring
                     }
                     catch (Exception ex)
                     {
-                        isworking = false;
                     }
 
                 }
                 filter_CheckYN = "N";
-                lbl_CheckAll.Invoke((MethodInvoker)delegate ()
-                {
-                    lbl_CheckAll.Focus();
-                });
+              
+                isworking = false;
 
             }
-            
+
         }
 
         private void Popup_AlertHistory_FormClosed(object sender, FormClosedEventArgs e)
         {
+            while (isworking)
+            {
+
+            }
             switch (parentType)
             {
                 case "DieMonitoring.uc_Alert":

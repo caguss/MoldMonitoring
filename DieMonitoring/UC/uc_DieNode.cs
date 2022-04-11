@@ -78,13 +78,6 @@ namespace DieMonitoring
             {
                 RedAlarm();
             }
-            else
-            {
-                SafeAlarm();
-            }
-
-
-
         }
         public void ChangeValue(int value)
         {
@@ -94,10 +87,6 @@ namespace DieMonitoring
             if (Convert.ToDouble(value) >= high_limit || Convert.ToDouble(value) <= low_limit)
             {
                 RedAlarm();
-            }
-            else
-            {
-                SafeAlarm();
             }
 
 
